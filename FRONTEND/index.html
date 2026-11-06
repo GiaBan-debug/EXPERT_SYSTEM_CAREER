@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduCareer AI - Hệ Chuyên Gia Tư Vấn Chọn Ngành/Nghề THPT</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Global & Page CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/home.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header class="app-header">
+    <div class="container navbar-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-logo-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div class="brand-text">
+          EduCareer AI
+          <span>Hệ Chuyên Gia THPT</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="primaryNav">
+        <a href="pages/home.html" class="nav-link active">Trang chủ</a>
+        <a href="pages/consultation.html" class="nav-link">Tư vấn chọn ngành</a>
+        <a href="pages/career-list.html" class="nav-link">Tra cứu ngành nghề</a>
+        <a href="pages/history.html" class="nav-link">Lịch sử tư vấn</a>
+        <a href="pages/about.html" class="nav-link">Giới thiệu hệ thống</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" title="Đổi giao diện Sáng/Tối">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="pages/consultation.html" class="btn btn-primary btn-sm">
+          <i class="fas fa-magic"></i>
+          <span>Bắt đầu ngay</span>
+        </a>
+        <button class="mobile-menu-btn" aria-label="Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-pill">
+              <i class="fas fa-microchip"></i>
+              <span>Công Nghệ Hệ Chuyên Gia & Suy Diễn Tiến</span>
+            </div>
+            
+            <h1 class="hero-title">
+              Định Hướng Ngành Nghề & Khối Thi <span class="gradient-text">Chuẩn Xác Cho Học Sinh THPT</span>
+            </h1>
+            
+            <p class="hero-description">
+              Khám phá thế mạnh bản thân thông qua bài trắc nghiệm trắc ẩn <strong>RIASEC John Holland</strong> kết hợp phân tích năng lực học bạ 8 môn học để suy luận nhóm ngành và trường đại học tối ưu nhất.
+            </p>
+
+            <div class="hero-actions">
+              <a href="pages/consultation.html" class="btn btn-primary btn-lg">
+                <i class="fas fa-compass"></i> Bắt đầu tư vấn chuyên gia
+              </a>
+              <a href="pages/career-list.html" class="btn btn-secondary btn-lg">
+                <i class="fas fa-search"></i> Khám phá ngành học
+              </a>
+            </div>
+
+            <div class="hero-stats">
+              <div class="hero-stat-item">
+                <h3>98.5%</h3>
+                <p>Độ tin cậy luật suy diễn</p>
+              </div>
+              <div class="hero-stat-item">
+                <h3>150+</h3>
+                <p>Ngành & Chuyên ngành đào tạo</p>
+              </div>
+              <div class="hero-stat-item">
+                <h3>6 Nhóm</h3>
+                <p>Mô hình Holland RIASEC</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Visual Component -->
+          <div class="hero-visual">
+            <div class="hero-visual-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <span class="badge badge-primary"><i class="fas fa-robot"></i> Mô Phỏng Suy Luận</span>
+                <span style="font-size: 0.85rem; color: var(--text-muted);"><i class="fas fa-circle" style="color:#10b981; font-size: 0.6rem;"></i> Engine Sẵn sàng</span>
+              </div>
+
+              <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">
+                Tư vấn cá nhân hóa theo 3 chiều dữ liệu
+              </h4>
+              <p style="font-size: 0.9rem; color: var(--text-muted);">
+                Kết hợp [Năng lực học bạ] + [Sở thích tính cách] + [Xu hướng việc làm 2026-2030].
+              </p>
+
+              <div class="radar-preview-box">
+                <div style="display: flex; justify-content: space-around; align-items: center; padding: 1rem 0;">
+                  <div style="text-align: center;">
+                    <span style="font-size: 1.6rem; font-weight: 800; color: #2563eb;">95%</span>
+                    <small style="display: block; color: var(--text-muted); font-size: 0.75rem;">Toán & Logic</small>
+                  </div>
+                  <div style="height: 40px; width: 1px; background: var(--border-color);"></div>
+                  <div style="text-align: center;">
+                    <span style="font-size: 1.6rem; font-weight: 800; color: #7c3aed;">I-R-C</span>
+                    <small style="display: block; color: var(--text-muted); font-size: 0.75rem;">Mã Holland</small>
+                  </div>
+                  <div style="height: 40px; width: 1px; background: var(--border-color);"></div>
+                  <div style="text-align: center;">
+                    <span style="font-size: 1.6rem; font-weight: 800; color: #10b981;">A00/A01</span>
+                    <small style="display: block; color: var(--text-muted); font-size: 0.75rem;">Tổ hợp đề xuất</small>
+                  </div>
+                </div>
+              </div>
+
+              <p style="font-size: 0.85rem; font-weight: 600; color: var(--text-main); margin-bottom: 0.5rem;">
+                Top ngành khuyến nghị cao nhất:
+              </p>
+              <div class="tag-cloud">
+                <span class="tag-item" style="border-left: 3px solid #2563eb;">Kỹ thuật Phần mềm (96%)</span>
+                <span class="tag-item" style="border-left: 3px solid #7c3aed;">Trí tuệ Nhân tạo (94%)</span>
+                <span class="tag-item" style="border-left: 3px solid #10b981;">Tự động hóa & Robot (89%)</span>
+              </div>
+
+              <div class="hero-floating-badge">
+                <i class="fas fa-check-circle" style="color: #10b981; font-size: 1.5rem;"></i>
+                <div>
+                  <div style="font-weight: 700; font-size: 0.9rem;">Khớp 14/14 Luật</div>
+                  <small style="color: var(--text-muted); font-size: 0.75rem;">Giải quyết xung đột tri thức</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Workflow Section -->
+    <section class="workflow-section">
+      <div class="container">
+        <div class="section-intro-center">
+          <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Quy trình chuyên gia</span>
+          <h2 class="section-title">4 Bước Định Hình Tương Lai</h2>
+          <p class="section-subtitle">
+            Hệ chuyên gia hướng nghiệp áp dụng quy trình đánh giá chuẩn mực khoa học giúp học sinh tự tin trước kỳ thi THPT Quốc gia.
+          </p>
+        </div>
+
+        <div class="workflow-grid">
+          <div class="step-card">
+            <span class="step-number">01</span>
+            <div class="step-icon">
+              <i class="fas fa-user-graduate"></i>
+            </div>
+            <h4>Khai báo hồ sơ</h4>
+            <p>Nhập thông tin cơ bản, khối lớp và học lực trung bình các môn văn hóa chủ chốt.</p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-number">02</span>
+            <div class="step-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h4>Trắc nghiệm RIASEC</h4>
+            <p>Trả lời bộ câu hỏi trắc nghiệm tâm lý học để xác định nhóm tính cách và sở thích nghề nghiệp.</p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-number">03</span>
+            <div class="step-icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <h4>Bộ máy suy diễn</h4>
+            <p>Động cơ suy diễn tiến (Forward Chaining) tự động kích hoạt tập luật IF-THEN và giải quyết xung đột.</p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-number">04</span>
+            <div class="step-icon">
+              <i class="fas fa-chart-pie"></i>
+            </div>
+            <h4>Nhận báo cáo & Vết</h4>
+            <p>Xem danh sách ngành học kèm độ phù hợp (%), vết suy luận logic và danh sách đại học đào tạo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Holland RIASEC Showcase Section -->
+    <section class="riasec-showcase-section">
+      <div class="container">
+        <div class="section-intro-center">
+          <span class="badge badge-purple" style="margin-bottom: 0.75rem;">Mô hình tâm lý John Holland</span>
+          <h2 class="section-title">6 Nhóm Tính Cách Nghề Nghiệp (RIASEC)</h2>
+          <p class="section-subtitle">
+            Thuyết hướng nghiệp Holland là cơ sở khoa học được công nhận toàn cầu trong định hướng việc làm.
+          </p>
+        </div>
+
+        <div class="riasec-grid">
+          <!-- R -->
+          <div class="riasec-card type-r">
+            <div class="riasec-card-header">
+              <div class="riasec-badge-char">R</div>
+              <div>
+                <h4 style="font-weight: 700; font-size: 1.15rem;">Thực tế (Realistic)</h4>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Thích hành động, kỹ thuật, công cụ</span>
+              </div>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+              Phù hợp với các ngành: Cơ khí, Tự động hóa, Xây dựng, Điện tử, Nông nghiệp công nghệ cao.
+            </p>
+          </div>
+
+          <!-- I -->
+          <div class="riasec-card type-i">
+            <div class="riasec-card-header">
+              <div class="riasec-badge-char">I</div>
+              <div>
+                <h4 style="font-weight: 700; font-size: 1.15rem;">Nghiên cứu (Investigative)</h4>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Tư duy logic, khoa học, phân tích</span>
+              </div>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+              Phù hợp với các ngành: Công nghệ thông tin, Trí tuệ nhân tạo, Y đa khoa, Nghiên cứu sinh học.
+            </p>
+          </div>
+
+          <!-- A -->
+          <div class="riasec-card type-a">
+            <div class="riasec-card-header">
+              <div class="riasec-badge-char">A</div>
+              <div>
+                <h4 style="font-weight: 700; font-size: 1.15rem;">Nghệ thuật (Artistic)</h4>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Trực giác, sáng tạo, thẩm mỹ</span>
+              </div>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+              Phù hợp với các ngành: Thiết kế đồ họa, Kiến trúc, Thời trang, Biên kịch, Sản xuất nội dung.
+            </p>
+          </div>
+
+          <!-- S -->
+          <div class="riasec-card type-s">
+            <div class="riasec-card-header">
+              <div class="riasec-badge-char">S</div>
+              <div>
+                <h4 style="font-weight: 700; font-size: 1.15rem;">Xã hội (Social)</h4>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Giao tiếp, thấu hiểu, đào tạo</span>
+              </div>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+              Phù hợp với các ngành: Sư phạm, Tâm lý học, Công tác xã hội, Y tế cộng đồng, Quan hệ đối ngoại.
+            </p>
+          </div>
+
+          <!-- E -->
+          <div class="riasec-card type-e">
+            <div class="riasec-card-header">
+              <div class="riasec-badge-char">E</div>
+              <div>
+                <h4 style="font-weight: 700; font-size: 1.15rem;">Quản trị (Enterprising)</h4>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Lãnh đạo, đàm phán, kinh doanh</span>
+              </div>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+              Phù hợp với các ngành: Quản trị kinh doanh, Marketing số, Luật kinh tế, Khởi nghiệp thương mại.
+            </p>
+          </div>
+
+          <!-- C -->
+          <div class="riasec-card type-c">
+            <div class="riasec-card-header">
+              <div class="riasec-badge-char">C</div>
+              <div>
+                <h4 style="font-weight: 700; font-size: 1.15rem;">Nghiệp vụ (Conventional)</h4>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Ngăn nắp, quy trình, số liệu</span>
+              </div>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+              Phù hợp với các ngành: Kế toán, Kiểm toán, Quản lý chuỗi cung ứng Logistics, Tài chính ngân hàng.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="cta-banner-section">
+      <div class="container">
+        <div class="cta-banner-box">
+          <div style="position: relative; z-index: 2;">
+            <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 0.75rem;">
+              Sẵn sàng tìm ra cánh cửa đại học phù hợp nhất?
+            </h2>
+            <p style="font-size: 1.05rem; opacity: 0.9; max-width: 600px;">
+              Chỉ mất khoảng 3-5 phút để hoàn thành bộ trắc nghiệm và nhận phân tích chi tiết từ hệ thống chuyên gia.
+            </p>
+          </div>
+          <div style="position: relative; z-index: 2; flex-shrink: 0;">
+            <a href="pages/consultation.html" class="btn btn-secondary btn-lg" style="background: #ffffff; color: #1e3a8a; font-weight: 700; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
+              <i class="fas fa-play-circle"></i> Bắt đầu tư vấn miễn phí
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand-logo" style="margin-bottom: 1rem;">
+            <div class="brand-logo-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="brand-text" style="color: #fff;">
+              EduCareer AI
+              <span style="color: #60a5fa;">Hệ Chuyên Gia Hướng Nghiệp</span>
+            </div>
+          </div>
+          <p style="color: #94a3b8; font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.25rem;">
+            Ứng dụng công nghệ Hệ Chuyên Gia (Expert System) với luật suy diễn tiến và trắc nghiệm RIASEC Holland giúp học sinh THPT định hướng ngành nghề và chọn tổ hợp xét tuyển đại học chuẩn xác nhất.
+          </p>
+          <div style="display: flex; gap: 0.75rem;">
+            <span class="badge badge-primary"><i class="fas fa-shield-alt"></i> Chuẩn BGD&ĐT</span>
+            <span class="badge badge-success"><i class="fas fa-microchip"></i> AI Suy diễn</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Tính năng</h4>
+          <ul>
+            <li><a href="pages/consultation.html"><i class="fas fa-chevron-right" style="font-size:0.75rem; margin-right:5px;"></i> Tư vấn học sinh</a></li>
+            <li><a href="pages/career-list.html"><i class="fas fa-chevron-right" style="font-size:0.75rem; margin-right:5px;"></i> Cơ sở dữ liệu ngành</a></li>
+            <li><a href="pages/history.html"><i class="fas fa-chevron-right" style="font-size:0.75rem; margin-right:5px;"></i> Xem lại kết quả</a></li>
+            <li><a href="pages/about.html"><i class="fas fa-chevron-right" style="font-size:0.75rem; margin-right:5px;"></i> Vết suy diễn (Trace)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Tài liệu hướng dẫn</h4>
+          <ul>
+            <li><a href="pages/about.html#riasec"><i class="fas fa-chevron-right" style="font-size:0.75rem; margin-right:5px;"></i> Mô hình RIASEC</a></li>
+            <li><a href="pages/about.html#rules"><i class="fas fa-chevron-right" style="font-size:0.75rem; margin-right:5px;"></i> Cơ chế giải quyết xung đột</a></li>
+            <li><a href="pages/about.html#blocks"><i class="fas fa-chevron-right" style="font-size:0.75rem; margin-right:5px;"></i> Tổ hợp khối thi THPT</a></li>
+            <li><a href="pages/about.html#system"><i class="fas fa-chevron-right" style="font-size:0.75rem; margin-right:5px;"></i> Kiến trúc chuyên gia</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Liên hệ hỗ trợ</h4>
+          <p style="color: #94a3b8; font-size: 0.92rem; margin-bottom: 0.75rem;">
+            <i class="fas fa-map-marker-alt" style="color: #60a5fa; margin-right: 8px;"></i>
+            Phòng Nghiên cứu Hệ Chuyên Gia & Trí tuệ Nhân tạo
+          </p>
+          <p style="color: #94a3b8; font-size: 0.92rem; margin-bottom: 0.75rem;">
+            <i class="fas fa-envelope" style="color: #60a5fa; margin-right: 8px;"></i>
+            support@educareer-ai.edu.vn
+          </p>
+          <p style="color: #94a3b8; font-size: 0.92rem;">
+            <i class="fas fa-phone-alt" style="color: #60a5fa; margin-right: 8px;"></i>
+            1900 6868 (8:00 - 17:30)
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 EduCareer AI - Hệ Chuyên Gia Tư Vấn Chọn Ngành/Nghề THPT. Bảo lưu mọi quyền.</div>
+        <div>Phát triển dựa trên thuật toán Suy diễn tiến (Forward Chaining).</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/home.js"></script>
+</body>
+</html>

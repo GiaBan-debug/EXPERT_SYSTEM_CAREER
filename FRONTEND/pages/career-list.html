@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cơ Sở Tri Thức Ngành Nghề - EduCareer AI</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/career.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="container navbar-container">
+      <a href="../index.html" class="brand-logo">
+        <div class="brand-logo-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div class="brand-text">
+          EduCareer AI
+          <span>Hệ Chuyên Gia THPT</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="primaryNav">
+        <a href="home.html" class="nav-link">Trang chủ</a>
+        <a href="consultation.html" class="nav-link">Tư vấn chọn ngành</a>
+        <a href="career-list.html" class="nav-link active">Tra cứu ngành nghề</a>
+        <a href="history.html" class="nav-link">Lịch sử tư vấn</a>
+        <a href="about.html" class="nav-link">Giới thiệu hệ thống</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" title="Đổi giao diện Sáng/Tối">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="consultation.html" class="btn btn-primary btn-sm">
+          <i class="fas fa-magic"></i> Bắt đầu tư vấn
+        </a>
+        <button class="mobile-menu-btn" aria-label="Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Section Intro -->
+      <div style="margin-bottom: 2rem;">
+        <span class="badge badge-primary" style="margin-bottom: 0.5rem;">Cơ sở tri thức (Knowledge Base)</span>
+        <h1 class="section-title">Danh Mục Ngành Nghề & Khối Thi THPT</h1>
+        <p class="section-subtitle">
+          Khám phá chi tiết các ngành nghề đào tạo đại học, tổ hợp môn xét tuyển, mức lương khởi điểm và mã tính cách Holland tương ứng.
+        </p>
+      </div>
+
+      <!-- Filter & Search Bar -->
+      <div class="career-filter-bar">
+        <div class="search-input-wrapper">
+          <i class="fas fa-search"></i>
+          <input type="text" id="careerSearchInput" class="form-control" placeholder="Tìm theo tên ngành, mã ngành, kỹ năng...">
+        </div>
+
+        <div class="filter-group">
+          <select id="categoryFilterSelect" class="form-control" style="width: auto; min-width: 200px;">
+            <option value="ALL">-- Tất cả lĩnh vực --</option>
+            <option value="Công nghệ Thông tin">Công nghệ Thông tin</option>
+            <option value="Y Dược & Chăm sóc Sức khỏe">Y Dược & Sức khỏe</option>
+            <option value="Kinh tế & Marketing">Kinh tế & Quản trị</option>
+            <option value="Nghệ thuật & Sáng tạo">Nghệ thuật & Thiết kế</option>
+            <option value="Kỹ thuật & Công nghệ">Kỹ thuật & Tự động hóa</option>
+            <option value="Giáo dục & Xã hội">Sư phạm & Giáo dục</option>
+          </select>
+
+          <select id="blockFilterSelect" class="form-control" style="width: auto; min-width: 160px;">
+            <option value="ALL">-- Tất cả khối thi --</option>
+            <option value="A00">Khối A00 (Toán-Lý-Hóa)</option>
+            <option value="A01">Khối A01 (Toán-Lý-Anh)</option>
+            <option value="B00">Khối B00 (Toán-Hóa-Sinh)</option>
+            <option value="C00">Khối C00 (Văn-Sử-Địa)</option>
+            <option value="D01">Khối D01 (Toán-Văn-Anh)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Career Cards Grid -->
+      <div class="career-grid-cards" id="careerListContainer">
+        <!-- Rendered by career.js -->
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© 2026 EduCareer AI - Hệ Chuyên Gia Tư Vấn Chọn Ngành/Nghề THPT.</div>
+        <div>Cơ sở tri thức được cập nhật định kỳ theo thông tin tuyển sinh mới nhất.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/career.js"></script>
+</body>
+</html>

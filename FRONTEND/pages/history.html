@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lịch Sử Tư Vấn - EduCareer AI</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/history.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="container navbar-container">
+      <a href="../index.html" class="brand-logo">
+        <div class="brand-logo-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div class="brand-text">
+          EduCareer AI
+          <span>Hệ Chuyên Gia THPT</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="primaryNav">
+        <a href="home.html" class="nav-link">Trang chủ</a>
+        <a href="consultation.html" class="nav-link">Tư vấn chọn ngành</a>
+        <a href="career-list.html" class="nav-link">Tra cứu ngành nghề</a>
+        <a href="history.html" class="nav-link active">Lịch sử tư vấn</a>
+        <a href="about.html" class="nav-link">Giới thiệu hệ thống</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" title="Đổi giao diện Sáng/Tối">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="consultation.html" class="btn btn-primary btn-sm">
+          <i class="fas fa-magic"></i> Tư vấn mới
+        </a>
+        <button class="mobile-menu-btn" aria-label="Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container history-container">
+      
+      <div class="history-header-actions">
+        <div>
+          <h1 class="section-title" style="margin-bottom: 0.35rem;">Nhật Ký & Lịch Sử Tư Vấn</h1>
+          <p class="section-subtitle">
+            Theo dõi sự thay đổi định hướng nghề nghiệp qua các lần cập nhật điểm học bạ và kết quả trắc nghiệm RIASEC.
+          </p>
+        </div>
+
+        <button class="btn btn-secondary btn-sm" id="btnClearHistory">
+          <i class="fas fa-trash-alt"></i> Xóa toàn bộ lịch sử
+        </button>
+      </div>
+
+      <div class="history-table-card">
+        <table class="history-table">
+          <thead>
+            <tr>
+              <th>Mã phiên</th>
+              <th>Ngày thực hiện</th>
+              <th>Học sinh</th>
+              <th>Mã RIASEC</th>
+              <th>Ngành đề xuất cao nhất</th>
+              <th>Độ phù hợp</th>
+              <th style="text-align: right;">Thao tác</th>
+            </tr>
+          </thead>
+          <tbody id="historyTableBody">
+            <!-- Rendered by history.js -->
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© 2026 EduCareer AI - Hệ Chuyên Gia Tư Vấn Chọn Ngành/Nghề THPT.</div>
+        <div>Hồ sơ được mã hóa và lưu trữ an toàn trên thiết bị của học sinh.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/history.js"></script>
+</body>
+</html>

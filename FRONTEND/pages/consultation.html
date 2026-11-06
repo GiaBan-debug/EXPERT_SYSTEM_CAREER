@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tư Vấn Chọn Ngành/Nghề - Hệ Chuyên Gia THPT</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/consultation.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="container navbar-container">
+      <a href="../index.html" class="brand-logo">
+        <div class="brand-logo-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div class="brand-text">
+          EduCareer AI
+          <span>Hệ Chuyên Gia THPT</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="primaryNav">
+        <a href="home.html" class="nav-link">Trang chủ</a>
+        <a href="consultation.html" class="nav-link active">Tư vấn chọn ngành</a>
+        <a href="career-list.html" class="nav-link">Tra cứu ngành nghề</a>
+        <a href="history.html" class="nav-link">Lịch sử tư vấn</a>
+        <a href="about.html" class="nav-link">Giới thiệu hệ thống</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" title="Đổi giao diện Sáng/Tối">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="mobile-menu-btn" aria-label="Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Consultation Workspace -->
+  <main class="main-content">
+    <div class="container consultation-wrapper">
+      
+      <!-- Stepper Navigation Header -->
+      <div class="stepper-nav">
+        <div class="stepper-progress-line">
+          <div class="stepper-progress-active" id="stepperProgressBar"></div>
+        </div>
+
+        <div class="step-item active" data-step="1">
+          <div class="step-circle"><i class="fas fa-user"></i></div>
+          <span class="step-title">1. Thông tin học sinh</span>
+        </div>
+
+        <div class="step-item" data-step="2">
+          <div class="step-circle"><i class="fas fa-book-open"></i></div>
+          <span class="step-title">2. Năng lực học tập</span>
+        </div>
+
+        <div class="step-item" data-step="3">
+          <div class="step-circle"><i class="fas fa-brain"></i></div>
+          <span class="step-title">3. Trắc nghiệm RIASEC</span>
+        </div>
+
+        <div class="step-item" data-step="4">
+          <div class="step-circle"><i class="fas fa-sliders-h"></i></div>
+          <span class="step-title">4. Nguyện vọng & Sở thích</span>
+        </div>
+      </div>
+
+      <!-- Multi-step Form Area -->
+      <form id="consultationForm">
+        
+        <!-- STEP 1: Student Information -->
+        <section class="form-step-pane active" id="stepPane1">
+          <div class="form-section-card">
+            <div class="pane-header">
+              <h3>Bước 1: Thông tin học sinh THPT</h3>
+              <p>Cung cấp thông tin cơ bản giúp lưu trữ kết quả và định hướng kỳ thi tốt nghiệp THPT</p>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="studentName">Họ và tên học sinh <span class="req">*</span></label>
+                <input type="text" class="form-control" id="studentName" placeholder="Ví dụ: Nguyễn Văn An" required>
+                <div class="invalid-feedback">Vui lòng nhập họ và tên</div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="studentGrade">Khối lớp hiện tại <span class="req">*</span></label>
+                <select class="form-control" id="studentGrade" required>
+                  <option value="">-- Chọn khối lớp --</option>
+                  <option value="12" selected>Lớp 12 (Chuẩn bị thi Tốt nghiệp & Đại học)</option>
+                  <option value="11">Lớp 11 (Bắt đầu định hướng chuyên ban)</option>
+                  <option value="10">Lớp 10 (Mới chuyển cấp THPT)</option>
+                </select>
+                <div class="invalid-feedback">Vui lòng chọn lớp học</div>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="studentSchool">Trường THPT</label>
+                <input type="text" class="form-control" id="studentSchool" placeholder="Ví dụ: THPT Chuyên Hà Nội - Amsterdam">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="studentRegion">Khu vực sinh sống / Ưu tiên học tập</label>
+                <select class="form-control" id="studentRegion">
+                  <option value="north">Miền Bắc (Hà Nội & các tỉnh lân cận)</option>
+                  <option value="central">Miền Trung (Đà Nẵng, Huế,...)</option>
+                  <option value="south" selected>Miền Nam (TP. Hồ Chí Minh & lân cận)</option>
+                  <option value="abroad">Du học Quốc tế</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Tổ hợp môn đã hoặc dự định lựa chọn theo chương trình GDPT mới</label>
+              <div class="selectable-box-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <label class="select-card-option checked">
+                  <input type="radio" name="mainComboTrack" value="khoa_hoc_tu_nhien" checked>
+                  <div>
+                    <strong>Khoa học Tự nhiên</strong>
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Vật lý, Hóa học, Sinh học</div>
+                  </div>
+                </label>
+                <label class="select-card-option">
+                  <input type="radio" name="mainComboTrack" value="khoa_hoc_xa_hoi">
+                  <div>
+                    <strong>Khoa học Xã hội</strong>
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Lịch sử, Địa lý, GDCD/KTTPL</div>
+                  </div>
+                </label>
+                <label class="select-card-option">
+                  <input type="radio" name="mainComboTrack" value="cong_nghe_nghe_thuat">
+                  <div>
+                    <strong>Công nghệ & Nghệ thuật</strong>
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Tin học, Công nghệ, Mỹ thuật/Âm nhạc</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-actions-footer">
+            <div></div>
+            <button type="button" class="btn btn-primary btn-next-step" data-target="2">
+              Tiếp tục: Nhập điểm học tập <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </section>
+
+        <!-- STEP 2: Academic Performance Scores -->
+        <section class="form-step-pane" id="stepPane2">
+          <div class="form-section-card">
+            <div class="pane-header">
+              <h3>Bước 2: Năng lực học tập (Điểm trung bình môn)</h3>
+              <p>Nhập điểm trung bình các môn học (thang điểm 10). Hệ chuyên gia sẽ tính toán độ tương thích với các tổ hợp xét tuyển đại học (A00, A01, B00, C00, D01,...)</p>
+            </div>
+
+            <div class="form-grid-2">
+              <!-- Toán -->
+              <div class="subject-score-card">
+                <div class="subject-header">
+                  <span class="subject-name"><i class="fas fa-square-root-alt" style="color:#2563eb; margin-right:6px;"></i> Toán học</span>
+                  <span class="score-display" id="displayScoreMath">8.5</span>
+                </div>
+                <input type="range" class="score-slider" id="scoreMath" min="1.0" max="10.0" step="0.1" value="8.5">
+              </div>
+
+              <!-- Vật lý -->
+              <div class="subject-score-card">
+                <div class="subject-header">
+                  <span class="subject-name"><i class="fas fa-atom" style="color:#0ea5e9; margin-right:6px;"></i> Vật lý</span>
+                  <span class="score-display" id="displayScorePhysics">8.0</span>
+                </div>
+                <input type="range" class="score-slider" id="scorePhysics" min="1.0" max="10.0" step="0.1" value="8.0">
+              </div>
+
+              <!-- Hóa học -->
+              <div class="subject-score-card">
+                <div class="subject-header">
+                  <span class="subject-name"><i class="fas fa-flask" style="color:#10b981; margin-right:6px;"></i> Hóa học</span>
+                  <span class="score-display" id="displayScoreChemistry">7.2</span>
+                </div>
+                <input type="range" class="score-slider" id="scoreChemistry" min="1.0" max="10.0" step="0.1" value="7.2">
+              </div>
+
+              <!-- Sinh học -->
+              <div class="subject-score-card">
+                <div class="subject-header">
+                  <span class="subject-name"><i class="fas fa-dna" style="color:#059669; margin-right:6px;"></i> Sinh học</span>
+                  <span class="score-display" id="displayScoreBiology">6.8</span>
+                </div>
+                <input type="range" class="score-slider" id="scoreBiology" min="1.0" max="10.0" step="0.1" value="6.8">
+              </div>
+
+              <!-- Ngữ văn -->
+              <div class="subject-score-card">
+                <div class="subject-header">
+                  <span class="subject-name"><i class="fas fa-feather-alt" style="color:#f59e0b; margin-right:6px;"></i> Ngữ văn</span>
+                  <span class="score-display" id="displayScoreLiterature">7.5</span>
+                </div>
+                <input type="range" class="score-slider" id="scoreLiterature" min="1.0" max="10.0" step="0.1" value="7.5">
+              </div>
+
+              <!-- Tiếng Anh -->
+              <div class="subject-score-card">
+                <div class="subject-header">
+                  <span class="subject-name"><i class="fas fa-language" style="color:#8b5cf6; margin-right:6px;"></i> Tiếng Anh</span>
+                  <span class="score-display" id="displayScoreEnglish">8.8</span>
+                </div>
+                <input type="range" class="score-slider" id="scoreEnglish" min="1.0" max="10.0" step="0.1" value="8.8">
+              </div>
+
+              <!-- Tin học -->
+              <div class="subject-score-card">
+                <div class="subject-header">
+                  <span class="subject-name"><i class="fas fa-code" style="color:#3b82f6; margin-right:6px;"></i> Tin học</span>
+                  <span class="score-display" id="displayScoreInformatics">9.0</span>
+                </div>
+                <input type="range" class="score-slider" id="scoreInformatics" min="1.0" max="10.0" step="0.1" value="9.0">
+              </div>
+
+              <!-- Lịch sử & Địa lý -->
+              <div class="subject-score-card">
+                <div class="subject-header">
+                  <span class="subject-name"><i class="fas fa-globe-asia" style="color:#ea580c; margin-right:6px;"></i> Lịch sử / Địa lý</span>
+                  <span class="score-display" id="displayScoreHistory">7.0</span>
+                </div>
+                <input type="range" class="score-slider" id="scoreHistory" min="1.0" max="10.0" step="0.1" value="7.0">
+              </div>
+            </div>
+          </div>
+
+          <div class="step-actions-footer">
+            <button type="button" class="btn btn-secondary btn-prev-step" data-target="1">
+              <i class="fas fa-arrow-left"></i> Quay lại
+            </button>
+            <button type="button" class="btn btn-primary btn-next-step" data-target="3">
+              Tiếp tục: Trắc nghiệm RIASEC <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </section>
+
+        <!-- STEP 3: RIASEC John Holland Assessment -->
+        <section class="form-step-pane" id="stepPane3">
+          <div class="form-section-card">
+            <div class="pane-header">
+              <h3>Bước 3: Trắc nghiệm Sở thích Nghề nghiệp RIASEC (Holland)</h3>
+              <p>Chọn mức độ phù hợp với sở thích của bạn từ <strong>1 (Rất không thích)</strong> đến <strong>5 (Rất hào hứng/yêu thích)</strong></p>
+            </div>
+
+            <!-- Q1 Realistic (R) -->
+            <div class="riasec-question-item" data-type="R">
+              <div class="riasec-q-text">1. Bạn có thích lắp ráp máy móc, tháo lắp linh kiện điện tử, sửa chữa thiết bị công nghệ hoặc làm việc với công cụ cụ thể không?</div>
+              <div class="riasec-options-row">
+                <div class="rating-pill" data-score="20">1 - Hoàn toàn không</div>
+                <div class="rating-pill" data-score="40">2 - Ít quan tâm</div>
+                <div class="rating-pill" data-score="60">3 - Bình thường</div>
+                <div class="rating-pill selected" data-score="80">4 - Thích</div>
+                <div class="rating-pill" data-score="100">5 - Rất đam mê</div>
+              </div>
+            </div>
+
+            <!-- Q2 Investigative (I) -->
+            <div class="riasec-question-item" data-type="I">
+              <div class="riasec-q-text">2. Bạn có đam mê tìm hiểu nguyên lý khoa học, giải các bài toán hóc búa, viết code thuật toán và nghiên cứu dữ liệu không?</div>
+              <div class="riasec-options-row">
+                <div class="rating-pill" data-score="20">1 - Hoàn toàn không</div>
+                <div class="rating-pill" data-score="40">2 - Ít quan tâm</div>
+                <div class="rating-pill" data-score="60">3 - Bình thường</div>
+                <div class="rating-pill" data-score="80">4 - Thích</div>
+                <div class="rating-pill selected" data-score="100">5 - Rất đam mê</div>
+              </div>
+            </div>
+
+            <!-- Q3 Artistic (A) -->
+            <div class="riasec-question-item" data-type="A">
+              <div class="riasec-q-text">3. Bạn có yêu thích vẽ tranh, thiết kế đồ họa, sáng tác video, viết lách sáng tạo hoặc thiết kế giao diện thẩm mỹ không?</div>
+              <div class="riasec-options-row">
+                <div class="rating-pill" data-score="20">1 - Hoàn toàn không</div>
+                <div class="rating-pill" data-score="40">2 - Ít quan tâm</div>
+                <div class="rating-pill selected" data-score="60">3 - Bình thường</div>
+                <div class="rating-pill" data-score="80">4 - Thích</div>
+                <div class="rating-pill" data-score="100">5 - Rất đam mê</div>
+              </div>
+            </div>
+
+            <!-- Q4 Social (S) -->
+            <div class="riasec-question-item" data-type="S">
+              <div class="riasec-q-text">4. Bạn có thấy vui vẻ khi giảng bài cho bạn bè, giúp đỡ người khác giải quyết vấn đề tâm lý, tư vấn và làm việc thiện nguyện?</div>
+              <div class="riasec-options-row">
+                <div class="rating-pill" data-score="20">1 - Hoàn toàn không</div>
+                <div class="rating-pill" data-score="40">2 - Ít quan tâm</div>
+                <div class="rating-pill" data-score="60">3 - Bình thường</div>
+                <div class="rating-pill selected" data-score="80">4 - Thích</div>
+                <div class="rating-pill" data-score="100">5 - Rất đam mê</div>
+              </div>
+            </div>
+
+            <!-- Q5 Enterprising (E) -->
+            <div class="riasec-question-item" data-type="E">
+              <div class="riasec-q-text">5. Bạn có thích thuyết phục người khác, làm nhóm trưởng điều phối dự án, bán hàng, đàm phán hoặc tham gia kinh doanh khởi nghiệp?</div>
+              <div class="riasec-options-row">
+                <div class="rating-pill" data-score="20">1 - Hoàn toàn không</div>
+                <div class="rating-pill" data-score="40">2 - Ít quan tâm</div>
+                <div class="rating-pill selected" data-score="60">3 - Bình thường</div>
+                <div class="rating-pill" data-score="80">4 - Thích</div>
+                <div class="rating-pill" data-score="100">5 - Rất đam mê</div>
+              </div>
+            </div>
+
+            <!-- Q6 Conventional (C) -->
+            <div class="riasec-question-item" data-type="C">
+              <div class="riasec-q-text">6. Bạn có thích làm việc theo bảng biểu thống kê, quản lý sổ sách chi tiết, sắp xếp trật tự và quy trình vận hành rõ ràng không?</div>
+              <div class="riasec-options-row">
+                <div class="rating-pill" data-score="20">1 - Hoàn toàn không</div>
+                <div class="rating-pill" data-score="40">2 - Ít quan tâm</div>
+                <div class="rating-pill" data-score="60">3 - Bình thường</div>
+                <div class="rating-pill selected" data-score="80">4 - Thích</div>
+                <div class="rating-pill" data-score="100">5 - Rất đam mê</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-actions-footer">
+            <button type="button" class="btn btn-secondary btn-prev-step" data-target="2">
+              <i class="fas fa-arrow-left"></i> Quay lại
+            </button>
+            <button type="button" class="btn btn-primary btn-next-step" data-target="4">
+              Tiếp tục: Sở thích & Nguyện vọng <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </section>
+
+        <!-- STEP 4: Preferences & Conflict Resolution Context -->
+        <section class="form-step-pane" id="stepPane4">
+          <div class="form-section-card">
+            <div class="pane-header">
+              <h3>Bước 4: Môi trường làm việc & Tiêu chí gia đình</h3>
+              <p>Các dữ kiện bổ sung để bộ máy suy diễn áp dụng các luật giải quyết xung đột (Conflict Resolution)</p>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Môi trường làm việc mong muốn nhất</label>
+              <div class="selectable-box-grid">
+                <label class="select-card-option checked">
+                  <input type="radio" name="prefEnvironment" value="tech" checked>
+                  <div>
+                    <strong>Công nghệ & Văn phòng hiện đại</strong>
+                    <div style="font-size:0.8rem; color:var(--text-muted);">Máy tính, phần mềm, làm việc linh hoạt hybrid/remote</div>
+                  </div>
+                </label>
+                <label class="select-card-option">
+                  <input type="radio" name="prefEnvironment" value="medical">
+                  <div>
+                    <strong>Bệnh viện & Phòng thí nghiệm</strong>
+                    <div style="font-size:0.8rem; color:var(--text-muted);">Chăm sóc bệnh nhân, nghiên cứu dược phẩm y học</div>
+                  </div>
+                </label>
+                <label class="select-card-option">
+                  <input type="radio" name="prefEnvironment" value="creative">
+                  <div>
+                    <strong>Studio Sáng tạo & Truyền thông</strong>
+                    <div style="font-size:0.8rem; color:var(--text-muted);">Quảng cáo, phim ảnh, thiết kế mỹ thuật tự do</div>
+                  </div>
+                </label>
+                <label class="select-card-option">
+                  <input type="radio" name="prefEnvironment" value="business">
+                  <div>
+                    <strong>Doanh nghiệp & Giao thương quốc tế</strong>
+                    <div style="font-size:0.8rem; color:var(--text-muted);">Tài chính, logistics, gặp gỡ đàm phán đối tác</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label">Mức học phí đại học phù hợp với gia đình</label>
+                <select class="form-control" id="prefTuition">
+                  <option value="standard" selected>Công lập đại trà (15 - 35 triệu/năm)</option>
+                  <option value="high">Chất lượng cao / Tự chủ tài chính (40 - 70 triệu/năm)</option>
+                  <option value="international">Đại học Quốc tế / Liên kết (80 - 150+ triệu/năm)</option>
+                  <option value="free">Trường Sư phạm / Quân đội (Miễn học phí + Trợ cấp)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Mục tiêu ưu tiên sau khi tốt nghiệp</label>
+                <select class="form-control" id="prefPriority">
+                  <option value="high_salary" selected>Thu nhập cao & cơ hội phát triển nghề nghiệp</option>
+                  <option value="stability">Tính ổn định lâu dài, ít biến động việc làm</option>
+                  <option value="passion">Theo đuổi đam mê sáng tạo cá nhân</option>
+                  <option value="abroad">Cơ hội làm việc tại nước ngoài hoặc định cư</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-actions-footer">
+            <button type="button" class="btn btn-secondary btn-prev-step" data-target="3">
+              <i class="fas fa-arrow-left"></i> Quay lại
+            </button>
+            <button type="button" class="btn btn-primary btn-lg" id="btnSubmitConsultation" style="padding: 1rem 2.5rem;">
+              <i class="fas fa-brain"></i> Kích hoạt Hệ Chuyên Gia Tư Vấn
+            </button>
+          </div>
+        </section>
+
+      </form>
+    </div>
+  </main>
+
+  <!-- Loading Modal Component -->
+  <div id="expertLoadingModal" class="loading-modal-backdrop" style="display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); z-index: 10000; justify-content: center; align-items: center;">
+    <div class="loading-modal-box" style="background: var(--bg-surface); border-radius: var(--radius-xl); padding: 3rem; text-align: center; max-width: 440px; box-shadow: 0 25px 50px rgba(0,0,0,0.35); border: 1px solid var(--border-color);">
+      <div class="spinner-core" style="width: 70px; height: 70px; margin: 0 auto 1.5rem; border: 5px solid var(--primary-100); border-top-color: var(--primary-600); border-radius: 50%; animation: spin 0.8s linear infinite;"></div>
+      <h3 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">Hệ Chuyên Gia Đang Suy Diễn...</h3>
+      <p id="loadingStatusText" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Đang nạp tập sự kiện và chuẩn hóa điểm học bạ...</p>
+      <div style="margin-top: 1.5rem; background: var(--bg-surface-alt); height: 6px; border-radius: 3px; overflow: hidden;">
+        <div id="loadingProgressLine" style="height: 100%; width: 25%; background: var(--grad-primary); transition: width 0.4s ease;"></div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© 2026 EduCareer AI - Hệ Chuyên Gia Tư Vấn Chọn Ngành/Nghề THPT.</div>
+        <div>Phát triển bằng thuật toán Forward Chaining & RIASEC Model.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/validation.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/consultation.js"></script>
+</body>
+</html>

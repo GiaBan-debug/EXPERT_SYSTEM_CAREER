@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi Tiết Ngành Nghề - EduCareer AI</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/career.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="container navbar-container">
+      <a href="../index.html" class="brand-logo">
+        <div class="brand-logo-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div class="brand-text">
+          EduCareer AI
+          <span>Hệ Chuyên Gia THPT</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="primaryNav">
+        <a href="home.html" class="nav-link">Trang chủ</a>
+        <a href="consultation.html" class="nav-link">Tư vấn chọn ngành</a>
+        <a href="career-list.html" class="nav-link active">Tra cứu ngành nghề</a>
+        <a href="history.html" class="nav-link">Lịch sử tư vấn</a>
+        <a href="about.html" class="nav-link">Giới thiệu hệ thống</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" title="Đổi giao diện Sáng/Tối">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="career-list.html" class="btn btn-secondary btn-sm">
+          <i class="fas fa-arrow-left"></i> Danh sách ngành
+        </a>
+        <button class="mobile-menu-btn" aria-label="Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container container-narrow">
+      
+      <!-- Hero Detail Card -->
+      <div class="career-detail-hero" id="careerDetailHero">
+        <div class="career-icon-avatar" style="width: 72px; height: 72px; font-size: 2.2rem;" id="detailIcon">
+          <i class="fas fa-laptop-code"></i>
+        </div>
+        <div style="flex:1;">
+          <div style="display:flex; gap:0.5rem; align-items:center; margin-bottom:0.5rem;">
+            <span class="badge badge-primary" id="detailCategory">Công nghệ Thông tin</span>
+            <span class="badge badge-purple" id="detailRiasecCode">Mã Holland: IRC</span>
+          </div>
+          <h1 style="font-size: 2rem; font-weight: 800; line-height: 1.25;" id="detailName">Kỹ thuật Phần mềm</h1>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.35rem;" id="detailCode">Mã chuyên ngành: CNTT01</p>
+        </div>
+      </div>
+
+      <!-- Detail Information Sections -->
+      <div class="card" style="margin-bottom: 2rem;">
+        <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem;">
+          <i class="fas fa-file-alt" style="color: var(--primary-600); margin-right: 6px;"></i> Mô tả nghề nghiệp & Nhiệm vụ chính
+        </h3>
+        <p id="detailDescription" style="color: var(--text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">
+          Đang tải dữ liệu...
+        </p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1.5rem 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+          <div>
+            <span style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">Mức thu nhập bình quân:</span>
+            <div class="salary-tag" style="font-size: 1.2rem;" id="detailSalary">
+              <i class="fas fa-coins"></i> 15,000,000 - 40,000,000 VNĐ
+            </div>
+          </div>
+          <div>
+            <span style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">Xu hướng thị trường:</span>
+            <span class="badge badge-success" style="font-size: 0.9rem;" id="detailTrend">Tăng trưởng rất cao</span>
+          </div>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+          <h4 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.75rem;">
+            <i class="fas fa-university" style="color: var(--primary-600); margin-right: 6px;"></i> Các trường Đại học đào tạo hàng đầu:
+          </h4>
+          <p id="detailUnis" style="color: var(--text-main); font-weight: 600;">
+            ĐH Bách Khoa, ĐH Công nghệ - ĐHQG, ĐH FPT
+          </p>
+        </div>
+      </div>
+
+      <!-- Expert Rules Card -->
+      <div class="card" style="margin-bottom: 2rem;">
+        <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem;">
+          <i class="fas fa-microchip" style="color: var(--secondary-600); margin-right: 6px;"></i> Các luật suy diễn chuyên gia (Inference Rules)
+        </h3>
+        <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1rem;">
+          Tập luật trong cơ sở tri thức để hệ thống kích hoạt ngành học này:
+        </p>
+        <div id="detailRulesContainer">
+          <!-- Render rules -->
+        </div>
+      </div>
+
+      <!-- Action Footer -->
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="consultation.html" class="btn btn-primary btn-lg">
+          <i class="fas fa-calculator"></i> Đánh giá độ phù hợp của bạn với ngành này
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© 2026 EduCareer AI - Hệ Chuyên Gia Tư Vấn Chọn Ngành/Nghề THPT.</div>
+        <div>Cơ sở tri thức và tập luật hướng nghiệp chuẩn xác.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const careerId = urlParams.get("id") || "it_software";
+      const career = await ApiClient.getCareerById(careerId);
+
+      if (career) {
+        document.title = `${career.name} - EduCareer AI`;
+        document.getElementById("detailCategory").textContent = career.category;
+        document.getElementById("detailRiasecCode").textContent = `Mã Holland: ${career.riasec_code}`;
+        document.getElementById("detailName").textContent = career.name;
+        document.getElementById("detailCode").textContent = `Mã ngành xét tuyển: ${career.code}`;
+        document.getElementById("detailDescription").textContent = career.description;
+        document.getElementById("detailSalary").innerHTML = `<i class="fas fa-coins"></i> ${career.average_salary}`;
+        document.getElementById("detailTrend").textContent = career.market_trend;
+        document.getElementById("detailUnis").textContent = career.top_universities.join(" • ");
+        
+        const iconAvatar = document.getElementById("detailIcon");
+        if (iconAvatar) iconAvatar.innerHTML = `<i class="fas ${career.icon}"></i>`;
+
+        const rulesBox = document.getElementById("detailRulesContainer");
+        if (rulesBox && career.rules) {
+          rulesBox.innerHTML = career.rules.map(r => `
+            <div style="background: var(--bg-surface-alt); padding: 0.85rem 1.25rem; border-radius: var(--radius-md); margin-bottom: 0.65rem; border-left: 3px solid var(--primary-600); font-size: 0.92rem;">
+              <i class="fas fa-code-branch" style="color: var(--primary-600); margin-right: 6px;"></i> ${r}
+            </div>
+          `).join("");
+        }
+      }
+    });
+  </script>
+</body>
+</html>

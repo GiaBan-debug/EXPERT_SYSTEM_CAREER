@@ -1,0 +1,337 @@
+/* ==========================================================================
+   CONSULTATION PAGE STYLES (consultation.css)
+   Interactive Multi-Step Expert System Form
+   ========================================================================== */
+
+.consultation-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Stepper Bar */
+.stepper-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.stepper-progress-line {
+  position: absolute;
+  top: 24px;
+  left: 30px;
+  right: 30px;
+  height: 4px;
+  background: var(--slate-200);
+  z-index: 1;
+}
+[data-theme="dark"] .stepper-progress-line {
+  background: var(--slate-700);
+}
+
+.stepper-progress-active {
+  height: 100%;
+  background: var(--grad-primary);
+  width: 0%;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.step-item {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  background: transparent;
+}
+
+.step-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  border: 3px solid var(--slate-300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--text-muted);
+  transition: var(--transition);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.step-item.active .step-circle {
+  border-color: var(--primary-600);
+  background: var(--primary-600);
+  color: #fff;
+  box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.2);
+}
+
+.step-item.completed .step-circle {
+  border-color: var(--accent-emerald);
+  background: var(--accent-emerald);
+  color: #fff;
+}
+
+.step-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: var(--transition);
+}
+
+.step-item.active .step-title {
+  color: var(--primary-600);
+  font-weight: 700;
+}
+
+/* Step Content Sections */
+.form-step-pane {
+  display: none;
+  animation: fadeIn 0.35s ease;
+}
+
+.form-step-pane.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Form Groups & Controls */
+.form-section-card {
+  background: var(--bg-surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-color);
+  padding: 2.5rem;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 2rem;
+}
+
+.pane-header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1.25rem;
+}
+
+.pane-header h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.pane-header p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.92rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+}
+
+.form-label span.req {
+  color: var(--accent-rose);
+  margin-left: 2px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-surface-alt);
+  color: var(--text-main);
+  transition: var(--transition);
+  font-size: 0.95rem;
+}
+
+.form-control:focus {
+  border-color: var(--primary-500);
+  background: var(--bg-surface);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+.form-control.is-invalid {
+  border-color: var(--accent-rose);
+  background-color: #fff1f2;
+}
+[data-theme="dark"] .form-control.is-invalid {
+  background-color: rgba(244, 63, 94, 0.1);
+}
+
+.invalid-feedback {
+  color: var(--accent-rose);
+  font-size: 0.8rem;
+  margin-top: 0.35rem;
+  display: none;
+}
+
+.form-control.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+/* Subject Score Sliders */
+.subject-score-card {
+  background: var(--bg-surface-alt);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.subject-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subject-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.score-display {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--primary-600);
+  background: var(--bg-surface);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  min-width: 48px;
+  text-align: center;
+}
+
+.score-slider {
+  width: 100%;
+  accent-color: var(--primary-600);
+  cursor: pointer;
+  height: 6px;
+}
+
+/* RIASEC Question Cards */
+.riasec-question-item {
+  background: var(--bg-surface-alt);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+  transition: var(--transition);
+}
+
+.riasec-question-item:hover {
+  border-color: var(--primary-300);
+}
+
+.riasec-q-text {
+  font-weight: 600;
+  font-size: 0.98rem;
+  margin-bottom: 0.85rem;
+}
+
+.riasec-options-row {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+
+.rating-pill {
+  flex: 1;
+  text-align: center;
+  padding: 0.5rem 0.25rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background: var(--bg-surface);
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.rating-pill:hover {
+  border-color: var(--primary-500);
+  background: var(--primary-50);
+}
+
+.rating-pill.selected {
+  background: var(--grad-primary);
+  color: #fff;
+  border-color: var(--primary-700);
+}
+
+/* Selection Cards (e.g. Work environment, Goal, Preferences) */
+.selectable-box-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.select-card-option {
+  position: relative;
+  background: var(--bg-surface-alt);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.select-card-option:hover {
+  border-color: var(--primary-400);
+  transform: translateY(-2px);
+}
+
+.select-card-option.checked {
+  border-color: var(--primary-600);
+  background: var(--primary-50);
+}
+[data-theme="dark"] .select-card-option.checked {
+  background: rgba(37, 99, 235, 0.15);
+  border-color: var(--primary-400);
+}
+
+.select-card-option input[type="radio"],
+.select-card-option input[type="checkbox"] {
+  margin-top: 3px;
+  accent-color: var(--primary-600);
+  transform: scale(1.2);
+}
+
+/* Stepper Actions */
+.step-actions-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+}

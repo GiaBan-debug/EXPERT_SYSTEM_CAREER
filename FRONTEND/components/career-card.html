@@ -1,0 +1,36 @@
+<!-- Career Card Template Component -->
+<div class="career-card-item" data-career-id="{{id}}">
+  <div>
+    <div class="career-header">
+      <div class="career-icon-avatar">
+        <i class="fas {{icon}}"></i>
+      </div>
+      <div>
+        <span class="badge badge-primary">{{category}}</span>
+        <h4 style="margin-top: 0.5rem; font-size: 1.15rem; font-weight: 700;">{{name}}</h4>
+        <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Mã ngành: {{code}}</span>
+      </div>
+    </div>
+    <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.25rem;">
+      {{description}}
+    </p>
+    <div style="margin-bottom: 1rem;">
+      <small style="font-weight: 700; color: var(--text-main); display: block; margin-bottom: 0.4rem;">
+        <i class="fas fa-book" style="color: var(--primary-600); margin-right: 4px;"></i> Khối thi chủ đạo:
+      </small>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+        {{required_blocks_badges}}
+      </div>
+    </div>
+  </div>
+
+  <div style="border-top: 1px solid var(--border-color); padding-top: 1rem; margin-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
+    <div class="salary-tag">
+      <i class="fas fa-coins"></i>
+      <span>{{average_salary}}</span>
+    </div>
+    <a href="career-detail.html?id={{id}}" class="btn btn-secondary btn-sm">
+      Chi tiết <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+</div>

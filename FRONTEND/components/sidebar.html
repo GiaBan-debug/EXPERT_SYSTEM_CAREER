@@ -1,0 +1,56 @@
+<!-- Navigation / Filter Sidebar Component -->
+<aside class="app-sidebar-panel card">
+  <div style="margin-bottom: 1.5rem;">
+    <h4 style="font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem;">
+      <i class="fas fa-filter" style="color: var(--primary-600); margin-right: 6px;"></i> Bộ lọc ngành nghề
+    </h4>
+    <p style="font-size: 0.85rem; color: var(--text-muted);">
+      Phân loại theo nhóm sở thích và khối thi tốt nghiệp
+    </p>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">Nhóm tính cách Holland</label>
+    <select class="form-control" id="sidebarRiasecFilter">
+      <option value="ALL">-- Tất cả 6 nhóm --</option>
+      <option value="R">R - Thực tế (Realistic)</option>
+      <option value="I">I - Nghiên cứu (Investigative)</option>
+      <option value="A">A - Nghệ thuật (Artistic)</option>
+      <option value="S">S - Xã hội (Social)</option>
+      <option value="E">E - Quản lý (Enterprising)</option>
+      <option value="C">C - Nghiệp vụ (Conventional)</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">Khối xét tuyển</label>
+    <select class="form-control" id="sidebarBlockFilter">
+      <option value="ALL">-- Tất cả các khối --</option>
+      <option value="A00">A00 (Toán, Lý, Hóa)</option>
+      <option value="A01">A01 (Toán, Lý, Tiếng Anh)</option>
+      <option value="B00">B00 (Toán, Hóa, Sinh)</option>
+      <option value="C00">C00 (Văn, Sử, Địa)</option>
+      <option value="D01">D01 (Toán, Văn, Tiếng Anh)</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">Lĩnh vực ngành nghề</label>
+    <select class="form-control" id="sidebarCategoryFilter">
+      <option value="ALL">-- Tất cả lĩnh vực --</option>
+      <option value="Công nghệ Thông tin">Công nghệ Thông tin</option>
+      <option value="Y Dược & Chăm sóc Sức khỏe">Y Dược & Sức khỏe</option>
+      <option value="Kinh tế & Marketing">Kinh tế & Quản trị</option>
+      <option value="Nghệ thuật & Sáng tạo">Nghệ thuật & Thiết kế</option>
+      <option value="Kỹ thuật & Công nghệ">Kỹ thuật & Robot</option>
+      <option value="Giáo dục & Xã hội">Sư phạm & Xã hội</option>
+    </select>
+  </div>
+
+  <button class="btn btn-primary" id="btnApplySidebarFilter" style="width: 100%; margin-top: 0.5rem;">
+    <i class="fas fa-search"></i> Áp dụng bộ lọc
+  </button>
+  <button class="btn btn-secondary" id="btnResetSidebarFilter" style="width: 100%; margin-top: 0.5rem;">
+    <i class="fas fa-undo"></i> Đặt lại
+  </button>
+</aside>

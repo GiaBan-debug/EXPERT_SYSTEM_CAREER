@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giới Thiệu Hệ Thống - EduCareer AI</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="container navbar-container">
+      <a href="../index.html" class="brand-logo">
+        <div class="brand-logo-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div class="brand-text">
+          EduCareer AI
+          <span>Hệ Chuyên Gia THPT</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="primaryNav">
+        <a href="home.html" class="nav-link">Trang chủ</a>
+        <a href="consultation.html" class="nav-link">Tư vấn chọn ngành</a>
+        <a href="career-list.html" class="nav-link">Tra cứu ngành nghề</a>
+        <a href="history.html" class="nav-link">Lịch sử tư vấn</a>
+        <a href="about.html" class="nav-link active">Giới thiệu hệ thống</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" title="Đổi giao diện Sáng/Tối">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="consultation.html" class="btn btn-primary btn-sm">
+          <i class="fas fa-magic"></i> Tư vấn ngay
+        </a>
+        <button class="mobile-menu-btn" aria-label="Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container container-narrow">
+      
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Hệ chuyên gia dựa trên tri thức (Knowledge-Based System)</span>
+        <h1 class="section-title">Kiến Trúc & Thuật Toán Hệ Chuyên Gia</h1>
+        <p class="section-subtitle" style="margin: 0 auto;">
+          Nền tảng ứng dụng Trí tuệ nhân tạo biểu diễn tri thức và suy diễn logic hỗ trợ công tác phân luồng và hướng nghiệp THPT.
+        </p>
+      </div>
+
+      <!-- Core Architecture Card -->
+      <div class="card" id="system" style="margin-bottom: 2rem;">
+        <h3 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 1rem; color: var(--primary-600);">
+          <i class="fas fa-sitemap"></i> 1. Kiến trúc hệ chuyên gia gồm 4 thành phần
+        </h3>
+        <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1.25rem;">
+          Hệ thống được thiết kế theo cấu trúc chuẩn mực của một Hệ chuyên gia cổ điển (Rule-based Expert System):
+        </p>
+        <ul style="list-style: disc; padding-left: 1.5rem; color: var(--text-main); line-height: 1.8;">
+          <li><strong>Cơ sở dữ liệu sự kiện (Working Memory / Fact Base):</strong> Chứa dữ liệu đầu vào của học sinh gồm điểm các môn văn hóa, kết quả đánh giá 6 chỉ số RIASEC, môi trường làm việc ưu tiên và khả năng kinh tế gia đình.</li>
+          <li><strong>Cơ sở tri thức (Knowledge Base):</strong> Hơn 150+ quy tắc dạng luật sản xuất (Production Rules: IF [tiền đề] THEN [kết luận]) được chuẩn hóa từ các chuyên gia tâm lý hướng nghiệp và dữ liệu tuyển sinh của Bộ Giáo dục & Đào tạo.</li>
+          <li><strong>Động cơ suy diễn (Inference Engine):</strong> Áp dụng thuật toán <em>Suy diễn tiến (Forward Chaining)</em> bắt đầu từ tập sự kiện của học sinh để suy ra tập ngành nghề phù hợp nhất.</li>
+          <li><strong>Bộ phận giải thích (Explanation Facility):</strong> Ghi nhận vết suy diễn (Execution Trace) giải thích rõ ràng tại sao hệ thống lại đưa ra kết luận đó, tạo sự tin cậy tuyệt đối cho phụ huynh và học sinh.</li>
+        </ul>
+      </div>
+
+      <!-- Forward Chaining Card -->
+      <div class="card" id="rules" style="margin-bottom: 2rem;">
+        <h3 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 1rem; color: var(--primary-600);">
+          <i class="fas fa-code-branch"></i> 2. Thuật toán Suy diễn tiến & Giải quyết xung đột
+        </h3>
+        <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1rem;">
+          Khi có nhiều luật cùng thỏa mãn (xảy ra xung đột trong tập kích hoạt - Conflict Set), động cơ áp dụng các chiến lược sau:
+        </p>
+        <div style="background: var(--bg-surface-alt); padding: 1.25rem; border-radius: var(--radius-md); border-left: 4px solid var(--accent-emerald); margin-bottom: 1rem;">
+          <strong style="display:block; margin-bottom:0.25rem;">Chiến lược 1: Ưu tiên luật đặc thù (Specificity)</strong>
+          <span style="font-size: 0.9rem; color: var(--text-muted);">Các luật có nhiều mệnh đề điều kiện khắt khe (ví dụ: vừa có điểm Toán cao vừa có chứng chỉ Tiếng Anh hoặc đam mê công nghệ) sẽ được gán độ ưu tiên cao hơn luật tổng quát.</span>
+        </div>
+        <div style="background: var(--bg-surface-alt); padding: 1.25rem; border-radius: var(--radius-md); border-left: 4px solid var(--accent-amber); margin-bottom: 1rem;">
+          <strong style="display:block; margin-bottom:0.25rem;">Chiến lược 2: Trọng số tin cậy (Certainty Factor - CF)</strong>
+          <span style="font-size: 0.9rem; color: var(--text-muted);">Mỗi luật gắn liền với một hệ số tin cậy từ 0.0 đến 1.0 đại diện cho mức độ phù hợp thực tế trên thị trường việc làm.</span>
+        </div>
+      </div>
+
+      <!-- RIASEC Card -->
+      <div class="card" id="riasec" style="margin-bottom: 2rem;">
+        <h3 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 1rem; color: var(--primary-600);">
+          <i class="fas fa-brain"></i> 3. Cơ sở khoa học: Lý thuyết Holland RIASEC
+        </h3>
+        <p style="color: var(--text-muted); line-height: 1.7;">
+          Phát triển bởi Tiến sĩ John L. Holland, mô hình phân loại con người thành 6 nhóm tính cách: Thực tế (Realistic), Nghiên cứu (Investigative), Nghệ thuật (Artistic), Xã hội (Social), Quản trị (Enterprising) và Nghiệp vụ (Conventional). Sự kết hợp giữa 3 chữ cái đại diện cao nhất (Holland Code) tạo nên bản đồ định hướng tương quan chính xác với môi trường làm việc trong tương lai.
+        </p>
+      </div>
+
+      <!-- Back to consultation CTA -->
+      <div style="text-align: center; padding: 1rem 0;">
+        <a href="consultation.html" class="btn btn-primary btn-lg">
+          <i class="fas fa-play"></i> Trải nghiệm hệ thống ngay bây giờ
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© 2026 EduCareer AI - Hệ Chuyên Gia Tư Vấn Chọn Ngành/Nghề THPT.</div>
+        <div>Phát triển vì thế hệ học sinh Việt Nam làm chủ tương lai.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

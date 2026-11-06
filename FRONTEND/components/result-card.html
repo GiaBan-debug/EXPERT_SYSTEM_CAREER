@@ -1,0 +1,64 @@
+<!-- Result Card Component with Explanation Trace -->
+<div class="career-match-card {{topClass}}">
+  <div class="rank-badge-ribbon">
+    <span class="badge {{badgeClass}}">{{rankText}}</span>
+  </div>
+
+  <div class="match-header">
+    <div>
+      <span class="badge badge-primary" style="margin-bottom: 0.5rem;">{{category}}</span>
+      <h3 class="career-name">{{name}}</h3>
+      <p class="career-cat"><i class="fas fa-barcode"></i> Mã xét tuyển: {{code}} | Khối: {{blocks}}</p>
+    </div>
+
+    <div class="match-score-radial">
+      <span class="number">{{matchScore}}</span>
+      <span class="unit">%</span>
+    </div>
+  </div>
+
+  <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">
+    {{description}}
+  </p>
+
+  <div class="score-breakdown-grid">
+    <div class="breakdown-item">
+      <p>Học lực môn thi: <strong>{{academicMatch}}%</strong></p>
+      <div class="progress-bar-custom">
+        <div class="progress-fill" style="width: {{academicMatch}}%;"></div>
+      </div>
+    </div>
+    <div class="breakdown-item">
+      <p>Tính cách RIASEC: <strong>{{personalityMatch}}%</strong></p>
+      <div class="progress-bar-custom">
+        <div class="progress-fill" style="width: {{personalityMatch}}%; background: var(--secondary-500);"></div>
+      </div>
+    </div>
+    <div class="breakdown-item">
+      <p>Tiềm năng thị trường: <strong>{{marketMatch}}%</strong></p>
+      <div class="progress-bar-custom">
+        <div class="progress-fill" style="width: {{marketMatch}}%; background: var(--accent-emerald);"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="expert-explanation-box">
+    <h5>
+      <i class="fas fa-microchip"></i>
+      Vết suy diễn chuyên gia (Explanation Trace):
+    </h5>
+    <ul class="rules-fired-list">
+      {{rulesListHtml}}
+    </ul>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+    <div>
+      <span style="font-size: 0.85rem; color: var(--text-muted);">Trường đào tạo hàng đầu: </span>
+      <strong style="font-size: 0.85rem; color: var(--text-main);">{{topUniversities}}</strong>
+    </div>
+    <a href="career-detail.html?id={{id}}" class="btn btn-outline btn-sm">
+      <i class="fas fa-info-circle"></i> Xem chi tiết lộ trình học
+    </a>
+  </div>
+</div>

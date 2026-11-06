@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kết Quả Tư Vấn Chuyên Gia - EduCareer AI</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Chart.js for RIASEC Radar chart -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/result.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="container navbar-container">
+      <a href="../index.html" class="brand-logo">
+        <div class="brand-logo-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div class="brand-text">
+          EduCareer AI
+          <span>Hệ Chuyên Gia THPT</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="primaryNav">
+        <a href="home.html" class="nav-link">Trang chủ</a>
+        <a href="consultation.html" class="nav-link">Tư vấn chọn ngành</a>
+        <a href="career-list.html" class="nav-link">Tra cứu ngành nghề</a>
+        <a href="history.html" class="nav-link">Lịch sử tư vấn</a>
+        <a href="about.html" class="nav-link">Giới thiệu hệ thống</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" title="Đổi giao diện Sáng/Tối">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="consultation.html" class="btn btn-outline btn-sm">
+          <i class="fas fa-redo"></i> Tư vấn lại
+        </a>
+        <button class="mobile-menu-btn" aria-label="Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Result Banner -->
+      <section class="result-hero-banner">
+        <div class="result-hero-content">
+          <span class="badge badge-success" style="background: rgba(16, 185, 129, 0.25); color: #a7f3d0; margin-bottom: 0.75rem;">
+            <i class="fas fa-check-double"></i> Suy diễn thành công
+          </span>
+          <h1 class="result-hero-title">Báo Cáo Tư Vấn Nghề Nghiệp</h1>
+          <p style="font-size: 1.05rem; opacity: 0.9; line-height: 1.6;">
+            Dựa trên phân tích luật suy diễn tiến từ hồ sơ học bạ và trắc nghiệm RIASEC của học sinh:
+          </p>
+          
+          <div class="student-meta-tags" id="studentMetaBadges">
+            <!-- Rendered dynamically by result.js -->
+            <span class="meta-tag"><i class="fas fa-user-graduate"></i> Học sinh: Đang tải...</span>
+            <span class="meta-tag"><i class="fas fa-id-card"></i> Mã phiên: ...</span>
+            <span class="meta-tag"><i class="fas fa-fingerprint"></i> Mã Holland: ...</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Layout: Recommendations & Analytics -->
+      <div class="result-layout-grid">
+        
+        <!-- Left: Ranked Recommendations List -->
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+            <h2 style="font-size: 1.5rem; font-weight: 800;">
+              <i class="fas fa-award" style="color: #f59e0b; margin-right: 8px;"></i>
+              Bảng Xếp Hạng Ngành Nghề Phù Hợp
+            </h2>
+            <button class="btn btn-secondary btn-sm" id="btnPrintReport">
+              <i class="fas fa-print"></i> In / Xuất PDF
+            </button>
+          </div>
+
+          <div id="recommendationsContainer">
+            <!-- Dynamic career recommendation cards will be inserted here -->
+          </div>
+        </div>
+
+        <!-- Right: RIASEC Radar Chart & Decision Explanation Summary -->
+        <div>
+          <div class="analytics-sidecard">
+            <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">
+              <i class="fas fa-chart-pie" style="color: var(--primary-600); margin-right: 6px;"></i>
+              Biểu Đồ Radar Holland (RIASEC)
+            </h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+              Phân bố 6 nhóm năng lực tâm lý nghề nghiệp
+            </p>
+
+            <div class="radar-chart-container">
+              <canvas id="riasecRadarChart"></canvas>
+            </div>
+
+            <div style="border-top: 1px solid var(--border-color); padding-top: 1.25rem; margin-top: 1rem;">
+              <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem;">
+                Tổ hợp xét tuyển khuyến nghị:
+              </h4>
+              <div class="admission-tags" id="recommendedBlocksContainer">
+                <!-- Badges -->
+              </div>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+              <a href="career-list.html" class="btn btn-secondary" style="width: 100%;">
+                <i class="fas fa-list"></i> Tra cứu danh mục tất cả các ngành
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© 2026 EduCareer AI - Hệ Chuyên Gia Tư Vấn Chọn Ngành/Nghề THPT.</div>
+        <div>Hệ thống giải thích vết suy diễn (Explanation Facility) minh bạch.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/result.js"></script>
+</body>
+</html>
