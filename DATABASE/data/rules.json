@@ -1,0 +1,948 @@
+{
+  "version": "1.0",
+  "rules": [
+    {
+      "id": "ABL-01",
+      "name": "Tư duy logic cao (Toán + Tin)",
+      "description": "Toán >= 8 và Tin học >= 7.5 cho thấy tư duy thuật toán tốt.",
+      "category": "ability",
+      "conditions": [
+        {
+          "attribute": "score.math",
+          "operator": ">=",
+          "value": 8
+        },
+        {
+          "attribute": "score.informatics",
+          "operator": ">=",
+          "value": 7.5
+        }
+      ],
+      "conclusion": {
+        "type": "fact",
+        "attribute": "ability.logic",
+        "value": "high"
+      },
+      "priority": 5,
+      "confidence": 0.9,
+      "enabled": true
+    },
+    {
+      "id": "ABL-02",
+      "name": "Tư duy logic cao (Toán + Lý)",
+      "description": "Toán >= 8 và Vật lý >= 8 cho thấy tư duy logic - định lượng tốt.",
+      "category": "ability",
+      "conditions": [
+        {
+          "attribute": "score.math",
+          "operator": ">=",
+          "value": 8
+        },
+        {
+          "attribute": "score.physics",
+          "operator": ">=",
+          "value": 8
+        }
+      ],
+      "conclusion": {
+        "type": "fact",
+        "attribute": "ability.logic",
+        "value": "high"
+      },
+      "priority": 5,
+      "confidence": 0.9,
+      "enabled": true
+    },
+    {
+      "id": "ABL-03",
+      "name": "Tư duy logic trung bình",
+      "description": "Toán từ 5 đến dưới 8.",
+      "category": "ability",
+      "conditions": [
+        {
+          "attribute": "score.math",
+          "operator": ">=",
+          "value": 5
+        },
+        {
+          "attribute": "score.math",
+          "operator": "<",
+          "value": 8
+        }
+      ],
+      "conclusion": {
+        "type": "fact",
+        "attribute": "ability.logic",
+        "value": "medium"
+      },
+      "priority": 5,
+      "confidence": 0.8,
+      "enabled": true
+    },
+    {
+      "id": "ABL-04",
+      "name": "Tư duy logic thấp",
+      "description": "Toán dưới 5.",
+      "category": "ability",
+      "conditions": [
+        {
+          "attribute": "score.math",
+          "operator": "<",
+          "value": 5
+        }
+      ],
+      "conclusion": {
+        "type": "fact",
+        "attribute": "ability.logic",
+        "value": "low"
+      },
+      "priority": 5,
+      "confidence": 0.8,
+      "enabled": true
+    },
+    {
+      "id": "ABL-05",
+      "name": "Khoa học tự nhiên cao",
+      "description": "Hóa >= 8 và Sinh >= 8.",
+      "category": "ability",
+      "conditions": [
+        {
+          "attribute": "score.chemistry",
+          "operator": ">=",
+          "value": 8
+        },
+        {
+          "attribute": "score.biology",
+          "operator": ">=",
+          "value": 8
+        }
+      ],
+      "conclusion": {
+        "type": "fact",
+        "attribute": "ability.natural_science",
+        "value": "high"
+      },
+      "priority": 5,
+      "confidence": 0.9,
+      "enabled": true
+    },
+    {
+      "id": "ABL-06",
+      "name": "Khoa học tự nhiên trung bình",
+      "description": "Hóa từ 6.5 đến dưới 8 và Sinh >= 6.5.",
+      "category": "ability",
+      "conditions": [
+        {
+          "attribute": "score.chemistry",
+          "operator": ">=",
+          "value": 6.5
+        },
+        {
+          "attribute": "score.chemistry",
+          "operator": "<",
+          "value": 8
+        },
+        {
+          "attribute": "score.biology",
+          "operator": ">=",
+          "value": 6.5
+        }
+      ],
+      "conclusion": {
+        "type": "fact",
+        "attribute": "ability.natural_science",
+        "value": "medium"
+      },
+      "priority": 5,
+      "confidence": 0.75,
+      "enabled": true
+    },
+    {
+      "id": "ABL-07",
+      "name": "Năng lực ngôn ngữ cao",
+      "description": "Ngữ văn >= 7.5 và Tiếng Anh >= 7.5.",
+      "category": "ability",
+      "conditions": [
+        {
+          "attribute": "score.literature",
+          "operator": ">=",
+          "value": 7.5
+        },
+        {
+          "attribute": "score.english",
+          "operator": ">=",
+          "value": 7.5
+        }
+      ],
+      "conclusion": {
+        "type": "fact",
+        "attribute": "ability.language",
+        "value": "high"
+      },
+      "priority": 5,
+      "confidence": 0.85,
+      "enabled": true
+    },
+    {
+      "id": "ABL-08",
+      "name": "Khoa học xã hội cao",
+      "description": "Ngữ văn >= 8 và Lịch sử >= 7.5.",
+      "category": "ability",
+      "conditions": [
+        {
+          "attribute": "score.literature",
+          "operator": ">=",
+          "value": 8
+        },
+        {
+          "attribute": "score.history",
+          "operator": ">=",
+          "value": 7.5
+        }
+      ],
+      "conclusion": {
+        "type": "fact",
+        "attribute": "ability.social_science",
+        "value": "high"
+      },
+      "priority": 5,
+      "confidence": 0.85,
+      "enabled": true
+    },
+    {
+      "id": "INT-01",
+      "name": "Thích công nghệ",
+      "description": "RIASEC: Nghiên cứu (I) >= 80 và Thực tế (R) >= 60.",
+      "category": "interest",
+      "conditions": [
+        {
+          "attribute": "riasec.I",
+          "operator": ">=",
+          "value": 80
+        },
+        {
+          "attribute": "riasec.R",
+          "operator": ">=",
+          "value": 60
+        }
+      ],
+      "conclusion": {
+        "type": "fact",
+        "attribute": "interest.tech",
+        "value": "high"
+      },
+      "priority": 5,
+      "confidence": 0.85,
+      "enabled": true
+    },
+    {
+      "id": "INT-02",
+      "name": "Thích chăm sóc sức khỏe",
+      "description": "RIASEC: Nghiên cứu (I) >= 80 và Xã hội (S) >= 60.",
+      "category": "interest",
+      "conditions": [
+        {
+          "attribute": "riasec.I",
+          "operator": ">=",
+          "value": 80
+        },
+        {
+          "attribute": "riasec.S",
+          "operator": ">=",
+          "value": 60
+        }
+      ],
+      "conclusion": {
+        "type": "fact",
+        "attribute": "interest.health",
+        "value": "high"
+      },
+      "priority": 5,
+      "confidence": 0.85,
+      "enabled": true
+    },
+    {
+      "id": "INT-03",
+      "name": "Thích nghệ thuật",
+      "description": "RIASEC: Nghệ thuật (A) >= 80.",
+      "category": "interest",
+      "conditions": [
+        {
+          "attribute": "riasec.A",
+          "operator": ">=",
+          "value": 80
+        }
+      ],
+      "conclusion": {
+        "type": "fact",
+        "attribute": "interest.art",
+        "value": "high"
+      },
+      "priority": 5,
+      "confidence": 0.9,
+      "enabled": true
+    },
+    {
+      "id": "INT-04",
+      "name": "Thích kinh doanh",
+      "description": "RIASEC: Quản lý - thuyết phục (E) >= 80.",
+      "category": "interest",
+      "conditions": [
+        {
+          "attribute": "riasec.E",
+          "operator": ">=",
+          "value": 80
+        }
+      ],
+      "conclusion": {
+        "type": "fact",
+        "attribute": "interest.business",
+        "value": "high"
+      },
+      "priority": 5,
+      "confidence": 0.85,
+      "enabled": true
+    },
+    {
+      "id": "INT-05",
+      "name": "Thích giáo dục - giúp đỡ người khác",
+      "description": "RIASEC: Xã hội (S) >= 80.",
+      "category": "interest",
+      "conditions": [
+        {
+          "attribute": "riasec.S",
+          "operator": ">=",
+          "value": 80
+        }
+      ],
+      "conclusion": {
+        "type": "fact",
+        "attribute": "interest.education",
+        "value": "high"
+      },
+      "priority": 5,
+      "confidence": 0.85,
+      "enabled": true
+    },
+    {
+      "id": "INT-06",
+      "name": "Thích kỹ thuật - thực hành",
+      "description": "RIASEC: Thực tế (R) >= 80.",
+      "category": "interest",
+      "conditions": [
+        {
+          "attribute": "riasec.R",
+          "operator": ">=",
+          "value": 80
+        }
+      ],
+      "conclusion": {
+        "type": "fact",
+        "attribute": "interest.engineering",
+        "value": "high"
+      },
+      "priority": 5,
+      "confidence": 0.85,
+      "enabled": true
+    },
+    {
+      "id": "INT-07",
+      "name": "Thích quản lý - vận hành",
+      "description": "RIASEC: Nghiệp vụ (C) >= 80 và Quản lý (E) >= 60.",
+      "category": "interest",
+      "conditions": [
+        {
+          "attribute": "riasec.C",
+          "operator": ">=",
+          "value": 80
+        },
+        {
+          "attribute": "riasec.E",
+          "operator": ">=",
+          "value": 60
+        }
+      ],
+      "conclusion": {
+        "type": "fact",
+        "attribute": "interest.management",
+        "value": "high"
+      },
+      "priority": 5,
+      "confidence": 0.8,
+      "enabled": true
+    },
+    {
+      "id": "GRP-01",
+      "name": "CNTT: logic cao + thích công nghệ",
+      "description": "Năng lực logic cao kết hợp sở thích công nghệ là tín hiệu mạnh nhất cho CNTT.",
+      "category": "career_group",
+      "conditions": [
+        {
+          "attribute": "ability.logic",
+          "operator": "==",
+          "value": "high"
+        },
+        {
+          "attribute": "interest.tech",
+          "operator": "==",
+          "value": "high"
+        }
+      ],
+      "conclusion": {
+        "type": "recommendation",
+        "career_group": "CNTT",
+        "careers": [
+          "it_software",
+          "ai_data"
+        ]
+      },
+      "priority": 9,
+      "confidence": 0.95,
+      "enabled": true
+    },
+    {
+      "id": "GRP-02",
+      "name": "CNTT: logic cao + môi trường công nghệ",
+      "description": "Logic cao và mong muốn làm việc trong môi trường công nghệ.",
+      "category": "career_group",
+      "conditions": [
+        {
+          "attribute": "ability.logic",
+          "operator": "==",
+          "value": "high"
+        },
+        {
+          "attribute": "pref.environment",
+          "operator": "==",
+          "value": "tech"
+        }
+      ],
+      "conclusion": {
+        "type": "recommendation",
+        "career_group": "CNTT",
+        "careers": [
+          "it_software",
+          "ai_data"
+        ]
+      },
+      "priority": 7,
+      "confidence": 0.85,
+      "enabled": true
+    },
+    {
+      "id": "GRP-03",
+      "name": "CNTT: giỏi Tin học + thích nghiên cứu",
+      "description": "Tin học >= 8.5 và RIASEC(I) >= 70.",
+      "category": "career_group",
+      "conditions": [
+        {
+          "attribute": "score.informatics",
+          "operator": ">=",
+          "value": 8.5
+        },
+        {
+          "attribute": "riasec.I",
+          "operator": ">=",
+          "value": 70
+        }
+      ],
+      "conclusion": {
+        "type": "recommendation",
+        "career_group": "CNTT",
+        "careers": [
+          "it_software"
+        ]
+      },
+      "priority": 7,
+      "confidence": 0.85,
+      "enabled": true
+    },
+    {
+      "id": "GRP-04",
+      "name": "AI & Dữ liệu: Toán xuất sắc",
+      "description": "Logic cao, Toán >= 9 và RIASEC(I) >= 80.",
+      "category": "career_group",
+      "conditions": [
+        {
+          "attribute": "ability.logic",
+          "operator": "==",
+          "value": "high"
+        },
+        {
+          "attribute": "score.math",
+          "operator": ">=",
+          "value": 9
+        },
+        {
+          "attribute": "riasec.I",
+          "operator": ">=",
+          "value": 80
+        }
+      ],
+      "conclusion": {
+        "type": "recommendation",
+        "career_group": "CNTT",
+        "careers": [
+          "ai_data"
+        ]
+      },
+      "priority": 8,
+      "confidence": 0.9,
+      "enabled": true
+    },
+    {
+      "id": "GRP-05",
+      "name": "CNTT: ưu tiên thu nhập cao",
+      "description": "Logic cao và ưu tiên thu nhập cao - cơ hội phát triển.",
+      "category": "career_group",
+      "conditions": [
+        {
+          "attribute": "ability.logic",
+          "operator": "==",
+          "value": "high"
+        },
+        {
+          "attribute": "pref.priority",
+          "operator": "==",
+          "value": "high_salary"
+        }
+      ],
+      "conclusion": {
+        "type": "recommendation",
+        "career_group": "CNTT",
+        "careers": [
+          "it_software",
+          "ai_data"
+        ]
+      },
+      "priority": 4,
+      "confidence": 0.7,
+      "enabled": true
+    },
+    {
+      "id": "GRP-06",
+      "name": "Y Dược: khoa học tự nhiên cao + thích chăm sóc sức khỏe",
+      "description": "Hóa - Sinh vượt trội cùng sở thích chăm sóc sức khỏe.",
+      "category": "career_group",
+      "conditions": [
+        {
+          "attribute": "ability.natural_science",
+          "operator": "==",
+          "value": "high"
+        },
+        {
+          "attribute": "interest.health",
+          "operator": "==",
+          "value": "high"
+        }
+      ],
+      "conclusion": {
+        "type": "recommendation",
+        "career_group": "YDUOC",
+        "careers": [
+          "medical_doctor"
+        ]
+      },
+      "priority": 9,
+      "confidence": 0.95,
+      "enabled": true
+    },
+    {
+      "id": "GRP-07",
+      "name": "Y Dược: khoa học tự nhiên cao + môi trường y tế",
+      "description": "Hóa - Sinh vượt trội và mong muốn làm việc trong môi trường y tế.",
+      "category": "career_group",
+      "conditions": [
+        {
+          "attribute": "ability.natural_science",
+          "operator": "==",
+          "value": "high"
+        },
+        {
+          "attribute": "pref.environment",
+          "operator": "==",
+          "value": "medical"
+        }
+      ],
+      "conclusion": {
+        "type": "recommendation",
+        "career_group": "YDUOC",
+        "careers": [
+          "medical_doctor"
+        ]
+      },
+      "priority": 7,
+      "confidence": 0.85,
+      "enabled": true
+    },
+    {
+      "id": "GRP-08",
+      "name": "Y Dược: tổ hợp KHTN + Sinh giỏi + hướng xã hội",
+      "description": "Chọn tổ hợp KHTN, Sinh >= 8, RIASEC(S) >= 60.",
+      "category": "career_group",
+      "conditions": [
+        {
+          "attribute": "student.track",
+          "operator": "==",
+          "value": "khoa_hoc_tu_nhien"
+        },
+        {
+          "attribute": "score.biology",
+          "operator": ">=",
+          "value": 8
+        },
+        {
+          "attribute": "riasec.S",
+          "operator": ">=",
+          "value": 60
+        }
+      ],
+      "conclusion": {
+        "type": "recommendation",
+        "career_group": "YDUOC",
+        "careers": [
+          "medical_doctor"
+        ]
+      },
+      "priority": 6,
+      "confidence": 0.8,
+      "enabled": true
+    },
+    {
+      "id": "GRP-09",
+      "name": "Nghệ thuật: thích nghệ thuật + môi trường sáng tạo",
+      "description": "Sở thích nghệ thuật cao và môi trường sáng tạo.",
+      "category": "career_group",
+      "conditions": [
+        {
+          "attribute": "interest.art",
+          "operator": "==",
+          "value": "high"
+        },
+        {
+          "attribute": "pref.environment",
+          "operator": "==",
+          "value": "creative"
+        }
+      ],
+      "conclusion": {
+        "type": "recommendation",
+        "career_group": "NGHETHUAT",
+        "careers": [
+          "graphic_design"
+        ]
+      },
+      "priority": 8,
+      "confidence": 0.9,
+      "enabled": true
+    },
+    {
+      "id": "GRP-10",
+      "name": "Nghệ thuật: RIASEC(A) cao + tổ hợp Công nghệ - Nghệ thuật",
+      "description": "RIASEC(A) >= 70 và chọn tổ hợp Công nghệ & Nghệ thuật.",
+      "category": "career_group",
+      "conditions": [
+        {
+          "attribute": "riasec.A",
+          "operator": ">=",
+          "value": 70
+        },
+        {
+          "attribute": "student.track",
+          "operator": "==",
+          "value": "cong_nghe_nghe_thuat"
+        }
+      ],
+      "conclusion": {
+        "type": "recommendation",
+        "career_group": "NGHETHUAT",
+        "careers": [
+          "graphic_design"
+        ]
+      },
+      "priority": 6,
+      "confidence": 0.8,
+      "enabled": true
+    },
+    {
+      "id": "GRP-11",
+      "name": "Nghệ thuật: ưu tiên đam mê",
+      "description": "Ưu tiên theo đuổi đam mê và RIASEC(A) >= 60.",
+      "category": "career_group",
+      "conditions": [
+        {
+          "attribute": "pref.priority",
+          "operator": "==",
+          "value": "passion"
+        },
+        {
+          "attribute": "riasec.A",
+          "operator": ">=",
+          "value": 60
+        }
+      ],
+      "conclusion": {
+        "type": "recommendation",
+        "career_group": "NGHETHUAT",
+        "careers": [
+          "graphic_design"
+        ]
+      },
+      "priority": 3,
+      "confidence": 0.65,
+      "enabled": true
+    },
+    {
+      "id": "GRP-12",
+      "name": "Kinh tế: thích kinh doanh + ngôn ngữ tốt",
+      "description": "Phù hợp Marketing - truyền thông.",
+      "category": "career_group",
+      "conditions": [
+        {
+          "attribute": "interest.business",
+          "operator": "==",
+          "value": "high"
+        },
+        {
+          "attribute": "ability.language",
+          "operator": "==",
+          "value": "high"
+        }
+      ],
+      "conclusion": {
+        "type": "recommendation",
+        "career_group": "KINHTE",
+        "careers": [
+          "digital_marketing"
+        ]
+      },
+      "priority": 8,
+      "confidence": 0.9,
+      "enabled": true
+    },
+    {
+      "id": "GRP-13",
+      "name": "Kinh tế: môi trường kinh doanh + RIASEC(E) cao",
+      "description": "Môi trường kinh doanh và RIASEC(E) >= 65.",
+      "category": "career_group",
+      "conditions": [
+        {
+          "attribute": "pref.environment",
+          "operator": "==",
+          "value": "business"
+        },
+        {
+          "attribute": "riasec.E",
+          "operator": ">=",
+          "value": 65
+        }
+      ],
+      "conclusion": {
+        "type": "recommendation",
+        "career_group": "KINHTE",
+        "careers": [
+          "digital_marketing"
+        ]
+      },
+      "priority": 6,
+      "confidence": 0.8,
+      "enabled": true
+    },
+    {
+      "id": "GRP-14",
+      "name": "Kinh tế: thích quản lý - vận hành + logic từ trung bình",
+      "description": "Phù hợp Logistics - chuỗi cung ứng.",
+      "category": "career_group",
+      "conditions": [
+        {
+          "attribute": "interest.management",
+          "operator": "==",
+          "value": "high"
+        },
+        {
+          "attribute": "ability.logic",
+          "operator": "in",
+          "value": [
+            "medium",
+            "high"
+          ]
+        }
+      ],
+      "conclusion": {
+        "type": "recommendation",
+        "career_group": "KINHTE",
+        "careers": [
+          "logistics_supply"
+        ]
+      },
+      "priority": 7,
+      "confidence": 0.85,
+      "enabled": true
+    },
+    {
+      "id": "GRP-15",
+      "name": "Kinh tế: ưu tiên cơ hội nước ngoài + Tiếng Anh tốt",
+      "description": "Tiếng Anh >= 8 và ưu tiên làm việc/định cư nước ngoài.",
+      "category": "career_group",
+      "conditions": [
+        {
+          "attribute": "pref.priority",
+          "operator": "==",
+          "value": "abroad"
+        },
+        {
+          "attribute": "score.english",
+          "operator": ">=",
+          "value": 8
+        }
+      ],
+      "conclusion": {
+        "type": "recommendation",
+        "career_group": "KINHTE"
+      },
+      "priority": 3,
+      "confidence": 0.65,
+      "enabled": true
+    },
+    {
+      "id": "GRP-16",
+      "name": "Kỹ thuật: thích kỹ thuật + logic cao",
+      "description": "Phù hợp Kỹ thuật điều khiển - tự động hóa.",
+      "category": "career_group",
+      "conditions": [
+        {
+          "attribute": "interest.engineering",
+          "operator": "==",
+          "value": "high"
+        },
+        {
+          "attribute": "ability.logic",
+          "operator": "==",
+          "value": "high"
+        }
+      ],
+      "conclusion": {
+        "type": "recommendation",
+        "career_group": "KYTHUAT",
+        "careers": [
+          "automation_eng"
+        ]
+      },
+      "priority": 8,
+      "confidence": 0.9,
+      "enabled": true
+    },
+    {
+      "id": "GRP-17",
+      "name": "Kỹ thuật: RIASEC(R) cao + Vật lý tốt",
+      "description": "RIASEC(R) >= 70 và Vật lý >= 7.5.",
+      "category": "career_group",
+      "conditions": [
+        {
+          "attribute": "riasec.R",
+          "operator": ">=",
+          "value": 70
+        },
+        {
+          "attribute": "score.physics",
+          "operator": ">=",
+          "value": 7.5
+        }
+      ],
+      "conclusion": {
+        "type": "recommendation",
+        "career_group": "KYTHUAT",
+        "careers": [
+          "automation_eng"
+        ]
+      },
+      "priority": 6,
+      "confidence": 0.8,
+      "enabled": true
+    },
+    {
+      "id": "GRP-18",
+      "name": "Giáo dục: thích giáo dục + khoa học xã hội cao",
+      "description": "Phù hợp Sư phạm.",
+      "category": "career_group",
+      "conditions": [
+        {
+          "attribute": "interest.education",
+          "operator": "==",
+          "value": "high"
+        },
+        {
+          "attribute": "ability.social_science",
+          "operator": "==",
+          "value": "high"
+        }
+      ],
+      "conclusion": {
+        "type": "recommendation",
+        "career_group": "GIAODUC",
+        "careers": [
+          "pedagogy_edu"
+        ]
+      },
+      "priority": 8,
+      "confidence": 0.9,
+      "enabled": true
+    },
+    {
+      "id": "GRP-19",
+      "name": "Giáo dục: RIASEC(S) cao + quan tâm ngành miễn học phí",
+      "description": "RIASEC(S) >= 70 và chọn trường Sư phạm/Quân đội miễn học phí.",
+      "category": "career_group",
+      "conditions": [
+        {
+          "attribute": "riasec.S",
+          "operator": ">=",
+          "value": 70
+        },
+        {
+          "attribute": "pref.tuition",
+          "operator": "==",
+          "value": "free"
+        }
+      ],
+      "conclusion": {
+        "type": "recommendation",
+        "career_group": "GIAODUC",
+        "careers": [
+          "pedagogy_edu"
+        ]
+      },
+      "priority": 6,
+      "confidence": 0.8,
+      "enabled": true
+    },
+    {
+      "id": "GRP-20",
+      "name": "Giáo dục: ưu tiên ổn định + hướng xã hội",
+      "description": "Ưu tiên tính ổn định lâu dài và RIASEC(S) >= 60.",
+      "category": "career_group",
+      "conditions": [
+        {
+          "attribute": "pref.priority",
+          "operator": "==",
+          "value": "stability"
+        },
+        {
+          "attribute": "riasec.S",
+          "operator": ">=",
+          "value": 60
+        }
+      ],
+      "conclusion": {
+        "type": "recommendation",
+        "career_group": "GIAODUC",
+        "careers": [
+          "pedagogy_edu"
+        ]
+      },
+      "priority": 4,
+      "confidence": 0.7,
+      "enabled": true
+    }
+  ]
+}

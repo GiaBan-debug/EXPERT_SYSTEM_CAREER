@@ -1,0 +1,66 @@
+{
+  "version": "1.0",
+  "description": "Quy ước Fact dùng chung cho Knowledge Base. Tên thuộc tính khớp với payload của FRONTEND (student, scores, riasec, preferences). Khi Thành viên 1 chốt fact_schema.py, chỉ cần cập nhật file này cho khớp.",
+  "operators_by_type": {
+    "number": ["==", "!=", ">", ">=", "<", "<="],
+    "enum": ["==", "!=", "in", "not_in"]
+  },
+  "priority_range": [1, 10],
+  "confidence_range": [0.0, 1.0],
+  "attributes": {
+    "score.math":        {"type": "number", "min": 1, "max": 10, "source": "input", "label": "Điểm Toán"},
+    "score.physics":     {"type": "number", "min": 1, "max": 10, "source": "input", "label": "Điểm Vật lý"},
+    "score.chemistry":   {"type": "number", "min": 1, "max": 10, "source": "input", "label": "Điểm Hóa học"},
+    "score.biology":     {"type": "number", "min": 1, "max": 10, "source": "input", "label": "Điểm Sinh học"},
+    "score.literature":  {"type": "number", "min": 1, "max": 10, "source": "input", "label": "Điểm Ngữ văn"},
+    "score.english":     {"type": "number", "min": 1, "max": 10, "source": "input", "label": "Điểm Tiếng Anh"},
+    "score.informatics": {"type": "number", "min": 1, "max": 10, "source": "input", "label": "Điểm Tin học"},
+    "score.history":     {"type": "number", "min": 1, "max": 10, "source": "input", "label": "Điểm Lịch sử"},
+
+    "riasec.R": {"type": "number", "min": 0, "max": 100, "source": "input", "label": "RIASEC - Thực tế (Realistic)"},
+    "riasec.I": {"type": "number", "min": 0, "max": 100, "source": "input", "label": "RIASEC - Nghiên cứu (Investigative)"},
+    "riasec.A": {"type": "number", "min": 0, "max": 100, "source": "input", "label": "RIASEC - Nghệ thuật (Artistic)"},
+    "riasec.S": {"type": "number", "min": 0, "max": 100, "source": "input", "label": "RIASEC - Xã hội (Social)"},
+    "riasec.E": {"type": "number", "min": 0, "max": 100, "source": "input", "label": "RIASEC - Quản lý (Enterprising)"},
+    "riasec.C": {"type": "number", "min": 0, "max": 100, "source": "input", "label": "RIASEC - Nghiệp vụ (Conventional)"},
+
+    "student.track":  {"type": "enum", "values": ["khoa_hoc_tu_nhien", "khoa_hoc_xa_hoi", "cong_nghe_nghe_thuat"], "source": "input", "label": "Tổ hợp môn GDPT mới"},
+    "student.grade":  {"type": "enum", "values": ["10", "11", "12"], "source": "input", "label": "Khối lớp"},
+    "student.region": {"type": "enum", "values": ["north", "central", "south", "abroad"], "source": "input", "label": "Khu vực"},
+
+    "pref.environment": {"type": "enum", "values": ["tech", "medical", "creative", "business"], "source": "input", "label": "Môi trường làm việc mong muốn"},
+    "pref.tuition":     {"type": "enum", "values": ["standard", "high", "international", "free"], "source": "input", "label": "Mức học phí"},
+    "pref.priority":    {"type": "enum", "values": ["high_salary", "stability", "passion", "abroad"], "source": "input", "label": "Ưu tiên nghề nghiệp"},
+
+    "ability.logic":           {"type": "enum", "values": ["low", "medium", "high"], "source": "derived", "label": "Năng lực tư duy logic - tính toán"},
+    "ability.natural_science": {"type": "enum", "values": ["low", "medium", "high"], "source": "derived", "label": "Năng lực khoa học tự nhiên"},
+    "ability.language":        {"type": "enum", "values": ["low", "medium", "high"], "source": "derived", "label": "Năng lực ngôn ngữ"},
+    "ability.social_science":  {"type": "enum", "values": ["low", "medium", "high"], "source": "derived", "label": "Năng lực khoa học xã hội"},
+
+    "interest.tech":        {"type": "enum", "values": ["low", "medium", "high"], "source": "derived", "label": "Sở thích công nghệ"},
+    "interest.health":      {"type": "enum", "values": ["low", "medium", "high"], "source": "derived", "label": "Sở thích chăm sóc sức khỏe"},
+    "interest.art":         {"type": "enum", "values": ["low", "medium", "high"], "source": "derived", "label": "Sở thích nghệ thuật"},
+    "interest.business":    {"type": "enum", "values": ["low", "medium", "high"], "source": "derived", "label": "Sở thích kinh doanh"},
+    "interest.management":  {"type": "enum", "values": ["low", "medium", "high"], "source": "derived", "label": "Sở thích quản lý - vận hành"},
+    "interest.education":   {"type": "enum", "values": ["low", "medium", "high"], "source": "derived", "label": "Sở thích giáo dục"},
+    "interest.engineering": {"type": "enum", "values": ["low", "medium", "high"], "source": "derived", "label": "Sở thích kỹ thuật"}
+  },
+  "career_groups": {
+    "CNTT":      "Công nghệ Thông tin",
+    "YDUOC":     "Y Dược & Chăm sóc Sức khỏe",
+    "KINHTE":    "Kinh tế, Marketing & Quản lý",
+    "NGHETHUAT": "Nghệ thuật & Sáng tạo",
+    "KYTHUAT":   "Kỹ thuật & Công nghệ",
+    "GIAODUC":   "Giáo dục & Xã hội"
+  },
+  "careers": {
+    "it_software":       "CNTT",
+    "ai_data":           "CNTT",
+    "medical_doctor":    "YDUOC",
+    "digital_marketing": "KINHTE",
+    "logistics_supply":  "KINHTE",
+    "graphic_design":    "NGHETHUAT",
+    "automation_eng":    "KYTHUAT",
+    "pedagogy_edu":      "GIAODUC"
+  }
+}
