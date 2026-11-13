@@ -294,3 +294,43 @@ class TestOrderingAndTrace:
         data = run_inference(rules, facts).to_dict()
         json.dumps(data, default=str)
         assert data["fired_rules"] == ["GRP-01"]
+
+
+# ----------------------------------------------------------------- tích hợp với rules.json thật (TV2)
+import json
+from pathlib import Path
+
+RULES_PATH = Path(__file__).resolve().parents[2] / "DATABASE" / "data" / "rules.json"
+
+
+@pytest.mark.skipif(not RULES_PATH.exists(), reason="Không tìm thấy DATABASE/data/rules.json")
+class TestWithRealRules:
+    @pytest.fixture(scope="class")
+    def real_rules(self):
+        with open(RULES_PATH, encoding="utf-8") as f:
+            return json.load(f)["rules"]
+
+    def test_it_student_gets_cntt_recommendations(self, real_rules):
+        facts = [
+            fact("score.math", 9), fact("score.informatics", 8.5), fact("score.physics", 8),
+            fact("riasec.I", 85), fact("riasec.R", 65), fact("pref.environment", "tech"),
+        ]
+        r = run_inference(real_rules, facts)
+        assert r.derived_facts["ability.logic"] == "high"
+        assert r.derived_facts["interest.tech"] == "high"
+        assert {x["career_group"] for x in r.recommendations} == {"CNTT"}
+        assert "GRP-01" in r.fired_rules
+        # luật dùng fact trung gian phải bắn SAU luật sinh ra fact đó
+        assert r.fired_rules.index("ABL-01") < r.fired_rules.index("GRP-01")
+        assert r.stopped_reason == "fixed_point"
+
+    def test_weak_student_gets_no_recommendation(self, real_rules):
+        r = run_inference(real_rules, [fact("score.math", 3)])
+        assert r.derived_facts == {"ability.logic": "low"}
+        assert r.recommendations == []
+
+    def test_each_real_rule_fires_at_most_once(self, real_rules):
+        facts = [fact("score.math", 9), fact("score.informatics", 9), fact("riasec.I", 90),
+                 fact("riasec.R", 90), fact("pref.environment", "tech")]
+        r = run_inference(real_rules, facts)
+        assert len(r.fired_rules) == len(set(r.fired_rules))
