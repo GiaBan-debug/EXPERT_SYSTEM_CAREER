@@ -1,0 +1,9 @@
+career_code,career_name,admission_block,benchmark_score_2024,benchmark_score_2025,top_school
+CNTT01,Kỹ thuật Phần mềm,A00;A01,26.5,27.0,Đại học Bách Khoa
+CNTT02,Khoa học Dữ liệu & AI,A00;A01,27.2,27.8,Đại học Bách Khoa
+Y01,Y khoa / Bác sĩ Đa khoa,B00,27.8,28.2,Đại học Y Hà Nội
+KT01,Digital Marketing,D01;A01,25.5,26.0,Đại học Ngoại Thương
+KT02,Logistics & Chuỗi cung ứng,A01;D01,26.0,26.5,Đại học Kinh tế Quốc dân
+TK01,Thiết kế Đồ họa,H00;V00;D01,23.5,24.0,Đại học Mỹ thuật Công nghiệp
+KT03,Kỹ thuật Điều khiển & Tự động hóa,A00;A01,25.0,25.8,Đại học Bách Khoa
+SP01,Sư phạm Toán / Ngữ văn,C00;D01;A00,25.5,26.2,Đại học Sư phạm Hà Nội

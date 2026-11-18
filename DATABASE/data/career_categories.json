@@ -1,0 +1,38 @@
+[
+  {
+    "id": "CNTT",
+    "name": "Công nghệ Thông tin",
+    "description": "Lĩnh vực phần mềm, dữ liệu, trí tuệ nhân tạo, an toàn thông tin và mạng máy tính.",
+    "icon": "fa-laptop-code"
+  },
+  {
+    "id": "YDUOC",
+    "name": "Y Dược & Chăm sóc Sức khỏe",
+    "description": "Y khoa, dược học, điều dưỡng, chăm sóc và nâng cao sức khỏe cộng đồng.",
+    "icon": "fa-user-md"
+  },
+  {
+    "id": "KINHTE",
+    "name": "Kinh tế, Marketing & Quản lý",
+    "description": "Quản trị kinh doanh, marketing số, thương mại quốc tế, logistics và tài chính.",
+    "icon": "fa-chart-line"
+  },
+  {
+    "id": "NGHETHUAT",
+    "name": "Nghệ thuật & Sáng tạo",
+    "description": "Thiết kế đồ họa, mỹ thuật đa phương tiện, kiến trúc và sáng tạo nội dung.",
+    "icon": "fa-palette"
+  },
+  {
+    "id": "KYTHUAT",
+    "name": "Kỹ thuật & Công nghệ",
+    "description": "Tự động hóa, robot, điện - điện tử, cơ khí chính xác và chế tạo máy.",
+    "icon": "fa-robot"
+  },
+  {
+    "id": "GIAODUC",
+    "name": "Giáo dục & Xã hội",
+    "description": "Sư phạm, tâm lý học ứng dụng, công tác xã hội và quản lý giáo dục.",
+    "icon": "fa-chalkboard-teacher"
+  }
+]
