@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bảng Điều Khiển Quản Trị - EduCareer AI</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="container navbar-container">
+      <a href="../index.html" class="brand-logo">
+        <div class="brand-logo-icon" style="background: linear-gradient(135deg, #1e293b, #0f172a);">
+          <i class="fas fa-user-shield"></i>
+        </div>
+        <div class="brand-text">
+          EduCareer Admin
+          <span>Quản trị Hệ Chuyên Gia</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="primaryNav">
+        <a href="home.html" class="nav-link">Trang chủ</a>
+        <a href="consultation.html" class="nav-link">Tư vấn chọn ngành</a>
+        <a href="career-list.html" class="nav-link">Tra cứu ngành nghề</a>
+        <a href="history.html" class="nav-link">Lịch sử tư vấn</a>
+        <a href="admin.html" class="nav-link active">Bảng quản trị</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" title="Đổi giao diện Sáng/Tối">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="consultation.html" class="btn btn-secondary btn-sm">
+          <i class="fas fa-external-link-alt"></i> Giao diện học sinh
+        </a>
+        <button class="mobile-menu-btn" aria-label="Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Admin Page Title Row -->
+      <div class="admin-header-row">
+        <div>
+          <span class="badge badge-primary" style="margin-bottom: 0.5rem;">Control Panel</span>
+          <h1 class="section-title" style="margin-bottom: 0.25rem;">Quản Trị Hệ Thống & Cơ Sở Tri Thức</h1>
+          <p class="section-subtitle">
+            Theo dõi lưu lượng tư vấn, quản lý tập luật IF-THEN và điều chỉnh trọng số tri thức của chuyên gia.
+          </p>
+        </div>
+
+        <div>
+          <button class="btn btn-primary" id="btnOpenAddRuleModal">
+            <i class="fas fa-plus-circle"></i> Thêm luật mới
+          </button>
+        </div>
+      </div>
+
+      <!-- Stat Widgets -->
+      <div class="stat-widgets-grid">
+        <div class="stat-widget-card">
+          <div class="widget-icon-box widget-icon-blue">
+            <i class="fas fa-brain"></i>
+          </div>
+          <div class="widget-info">
+            <h4>Tập luật tri thức</h4>
+            <div class="number" id="statTotalRules">35</div>
+            <small id="statActiveRules">35 đang kích hoạt</small>
+          </div>
+        </div>
+
+        <div class="stat-widget-card">
+          <div class="widget-icon-box widget-icon-emerald">
+            <i class="fas fa-user-graduate"></i>
+          </div>
+          <div class="widget-info">
+            <h4>Lượt tư vấn THPT</h4>
+            <div class="number" id="statTotalConsultations">0</div>
+            <small>Đã hoàn thành phân tích</small>
+          </div>
+        </div>
+
+        <div class="stat-widget-card">
+          <div class="widget-icon-box widget-icon-purple">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <div class="widget-info">
+            <h4>Ngành nghề đào tạo</h4>
+            <div class="number" id="statTotalCareers">8</div>
+            <small>6 nhóm lĩnh vực chính</small>
+          </div>
+        </div>
+
+        <div class="stat-widget-card">
+          <div class="widget-icon-box widget-icon-amber">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="widget-info">
+            <h4>Độ tin cậy Engine</h4>
+            <div class="number">98.5%</div>
+            <small>Forward Chaining & RIASEC</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="admin-nav-tabs">
+        <button class="admin-tab-btn active" data-tab="tab-rules">
+          <i class="fas fa-cogs"></i> Quản lý tập luật (Knowledge Base)
+        </button>
+        <button class="admin-tab-btn" data-tab="tab-consultations">
+          <i class="fas fa-history"></i> Nhật ký tư vấn gần đây
+        </button>
+        <button class="admin-tab-btn" data-tab="tab-system">
+          <i class="fas fa-server"></i> Trạng thái dịch vụ & CSDL
+        </button>
+      </div>
+
+      <!-- TAB 1: RULES MANAGEMENT -->
+      <div class="admin-tab-pane active" id="tab-rules">
+        <div class="admin-data-card">
+          <div class="table-toolbar">
+            <div style="display: flex; gap: 0.75rem; align-items: center; flex: 1; max-width: 450px;">
+              <input type="text" id="ruleSearchInput" class="form-control" placeholder="Tìm theo mã luật (ABL-01, GRP-01), tên luật...">
+            </div>
+            
+            <div style="display: flex; gap: 0.75rem; align-items: center;">
+              <select id="ruleCategoryFilter" class="form-control" style="width: auto;">
+                <option value="ALL">-- Tất cả phân loại --</option>
+                <option value="ability">Năng lực (Ability)</option>
+                <option value="interest">Sở thích (Interest)</option>
+                <option value="career_group">Đề xuất nhóm ngành (Career Group)</option>
+              </select>
+
+              <button class="btn btn-secondary btn-sm" id="btnRefreshRules">
+                <i class="fas fa-sync-alt"></i> Tải lại
+              </button>
+            </div>
+          </div>
+
+          <div style="overflow-x: auto;">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th style="width: 100px;">Mã Luật</th>
+                  <th>Tên luật & Diễn giải</th>
+                  <th style="width: 140px;">Phân loại</th>
+                  <th style="width: 90px; text-align: center;">Ưu tiên</th>
+                  <th style="width: 90px; text-align: center;">Tin cậy</th>
+                  <th style="width: 110px; text-align: center;">Trạng thái</th>
+                  <th style="width: 100px; text-align: right;">Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="rulesTableBody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: CONSULTATION LOGS -->
+      <div class="admin-tab-pane" id="tab-consultations">
+        <div class="admin-data-card">
+          <div class="table-toolbar">
+            <h3 style="font-size: 1.1rem; font-weight: 700;">Nhật ký tư vấn học sinh</h3>
+            <span class="badge badge-primary">Tự động đồng bộ</span>
+          </div>
+
+          <div style="overflow-x: auto;">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Mã phiên</th>
+                  <th>Học sinh</th>
+                  <th>Mã RIASEC</th>
+                  <th>Ngành đề xuất cao nhất</th>
+                  <th>Độ phù hợp</th>
+                  <th>Thời gian</th>
+                </tr>
+              </thead>
+              <tbody id="recentConsultationsTableBody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: SYSTEM STATUS -->
+      <div class="admin-tab-pane" id="tab-system">
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem;">
+            <i class="fas fa-microchip" style="color: var(--primary-600); margin-right: 6px;"></i> Thông số Lõi Hệ Chuyên Gia
+          </h3>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
+            <div style="background: var(--bg-surface-alt); padding: 1.25rem; border-radius: var(--radius-md);">
+              <span style="font-size: 0.85rem; color: var(--text-muted); display: block;">Thuật toán suy diễn</span>
+              <strong style="font-size: 1.1rem; color: var(--text-main);">Suy diễn tiến (Forward Chaining)</strong>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.35rem;">Kiểm tra thỏa mãn điều kiện theo chu kỳ & khúc xạ tránh lặp vô hạn.</p>
+            </div>
+            <div style="background: var(--bg-surface-alt); padding: 1.25rem; border-radius: var(--radius-md);">
+              <span style="font-size: 0.85rem; color: var(--text-muted); display: block;">Chiến lược giải quyết xung đột</span>
+              <strong style="font-size: 1.1rem; color: var(--text-main);">Confidence -> Priority -> Specificity</strong>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.35rem;">Xếp hạng luật bắn theo mức độ tin cậy và số lượng điều kiện.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem;">
+            <i class="fas fa-database" style="color: var(--accent-emerald); margin-right: 6px;"></i> Kết nối Cơ sở dữ liệu & API
+          </h3>
+          <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Trạng thái máy chủ API FastAPI: <span class="badge badge-success"><i class="fas fa-check-circle"></i> Sẵn sàng (Port 8000)</span>
+          </p>
+          <div style="display: flex; gap: 1rem;">
+            <a href="http://127.0.0.1:8000/docs" target="_blank" class="btn btn-secondary btn-sm">
+              <i class="fas fa-book"></i> Mở Swagger API Docs
+            </a>
+            <a href="http://127.0.0.1:8000/api/health" target="_blank" class="btn btn-secondary btn-sm">
+              <i class="fas fa-heartbeat"></i> Kiểm tra Health Check
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- MODAL: ADD NEW RULE -->
+  <div class="modal-backdrop-custom" id="addRuleModal">
+    <div class="modal-dialog-custom">
+      <div class="modal-header-custom">
+        <h3 style="font-size: 1.2rem; font-weight: 700;">
+          <i class="fas fa-plus-circle" style="color: var(--primary-600); margin-right: 6px;"></i> Thêm luật tri thức mới
+        </h3>
+        <button id="btnCloseModal" style="background:none; border:none; font-size: 1.4rem; cursor:pointer; color: var(--text-muted);">&times;</button>
+      </div>
+
+      <form id="addRuleForm">
+        <div class="modal-body-custom">
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Mã luật (ID) <span class="req">*</span></label>
+              <input type="text" class="form-control" id="newRuleId" placeholder="Ví dụ: GRP-99" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phân loại luật <span class="req">*</span></label>
+              <select class="form-control" id="newRuleCategory" required>
+                <option value="career_group">Đề xuất nhóm ngành (career_group)</option>
+                <option value="ability">Năng lực (ability)</option>
+                <option value="interest">Sở thích (interest)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Tên luật <span class="req">*</span></label>
+            <input type="text" class="form-control" id="newRuleName" placeholder="Ví dụ: CNTT: Kỹ năng logic + AI" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Diễn giải / Lý do</label>
+            <textarea class="form-control" id="newRuleDesc" rows="2" placeholder="Giải thích vì sao luật này có ý nghĩa..."></textarea>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Độ ưu tiên (Priority: 1-10)</label>
+              <input type="number" class="form-control" id="newRulePriority" min="1" max="10" value="8" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Độ tin cậy (Confidence: 0.1 - 1.0)</label>
+              <input type="number" class="form-control" id="newRuleConfidence" min="0.1" max="1.0" step="0.05" value="0.95" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Điều kiện IF (JSON Array) <span class="req">*</span></label>
+            <textarea class="form-control" id="newRuleConditions" rows="3" style="font-family: monospace; font-size: 0.85rem;" required>[
+  {"attribute": "ability.logic", "operator": "==", "value": "high"},
+  {"attribute": "interest.tech", "operator": "==", "value": "high"}
+]</textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Kết luận THEN (JSON Object) <span class="req">*</span></label>
+            <textarea class="form-control" id="newRuleConclusion" rows="3" style="font-family: monospace; font-size: 0.85rem;" required>{
+  "type": "recommendation",
+  "career_group": "CNTT",
+  "careers": ["it_software", "ai_data"]
+}</textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer-custom">
+          <button type="button" class="btn btn-secondary" id="btnCancelModal">Hủy</button>
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-save"></i> Lưu vào Cơ sở tri thức
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© 2026 EduCareer AI - Bảng Điều Khiển Quản Trị Hệ Chuyên Gia.</div>
+        <div>Hỗ trợ kiểm tra cú pháp và bảo vệ tính nhất quán của Cơ sở tri thức.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

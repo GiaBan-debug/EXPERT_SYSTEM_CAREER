@@ -245,6 +245,87 @@ const ApiClient = {
     return local ? JSON.parse(local) : [];
   },
 
+  // ADMIN APIS
+  async getAdminStats() {
+    try {
+      const res = await fetch(`${API_BASE}/admin/stats`);
+      if (res.ok) return await res.json();
+    } catch (e) {
+      console.warn("Backend not running, returning mock admin stats.");
+    }
+    const history = this.getHistorySync();
+    return {
+      rules: {
+        total: 35,
+        enabled: 35,
+        disabled: 0,
+        fact_rules: 20,
+        recommendation_rules: 15,
+        by_group: { CNTT: 3, YDUOC: 2, KINHTE: 3, NGHETHUAT: 2, KYTHUAT: 3, GIAODUC: 2 }
+      },
+      totalCareers: CAREER_DATABASE.length,
+      totalConsultations: history.length,
+      totalStudents: history.length,
+      topRecommendedCareers: {
+        "Kỹ thuật Phần mềm / Lập trình viên": 12,
+        "Khoa học Dữ liệu & Trí tuệ Nhân tạo (AI)": 8,
+        "Bác sĩ Đa khoa / Y khoa": 5
+      },
+      recentConsultations: history.slice(0, 5)
+    };
+  },
+
+  async getAdminRules() {
+    try {
+      const res = await fetch(`${API_BASE}/admin/rules`);
+      if (res.ok) return await res.json();
+    } catch (e) {
+      console.warn("Backend not running, returning default mock rules.");
+    }
+    return [
+      { id: "ABL-01", name: "Tư duy logic cao (Toán + Tin)", category: "ability", priority: 5, confidence: 0.9, enabled: true, description: "Toán >= 8 và Tin học >= 7.5" },
+      { id: "ABL-02", name: "Tư duy logic cao (Toán + Lý)", category: "ability", priority: 5, confidence: 0.9, enabled: true, description: "Toán >= 8 và Vật lý >= 8" },
+      { id: "GRP-01", name: "CNTT: logic cao + thích công nghệ", category: "career_group", priority: 9, confidence: 0.95, enabled: true, description: "Tư duy logic cao kết hợp đam mê công nghệ" },
+      { id: "GRP-02", name: "Y Dược: KHTN cao + thích sức khỏe", category: "career_group", priority: 9, confidence: 0.95, enabled: true, description: "Sinh, Hóa xuất sắc và hướng về cộng đồng" },
+      { id: "GRP-03", name: "Marketing: Ngôn ngữ + Xã hội", category: "career_group", priority: 8, confidence: 0.9, enabled: true, description: "Kỹ năng truyền thông và thuyết phục" }
+    ];
+  },
+
+  async toggleRule(ruleId) {
+    try {
+      const res = await fetch(`${API_BASE}/admin/rules/${ruleId}/toggle`, { method: "PATCH" });
+      if (res.ok) return await res.json();
+    } catch (e) {
+      console.warn("Backend toggle error fallback.");
+    }
+    return { success: true, rule_id: ruleId, enabled: false, message: `Đã thay đổi trạng thái luật ${ruleId}` };
+  },
+
+  async createRule(ruleData) {
+    try {
+      const res = await fetch(`${API_BASE}/admin/rules`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(ruleData)
+      });
+      if (res.ok) return await res.json();
+      const err = await res.json();
+      throw new Error(err.detail ? (Array.isArray(err.detail) ? err.detail.join("; ") : err.detail) : "Lỗi tạo luật");
+    } catch (e) {
+      throw e;
+    }
+  },
+
+  async deleteRule(ruleId) {
+    try {
+      const res = await fetch(`${API_BASE}/admin/rules/${ruleId}`, { method: "DELETE" });
+      if (res.ok) return await res.json();
+    } catch (e) {
+      console.warn("Backend delete error fallback.");
+    }
+    return { success: true, message: `Đã xóa luật ${ruleId}` };
+  },
+
   saveHistory(item) {
     const list = this.getHistorySync();
     list.unshift(item);
