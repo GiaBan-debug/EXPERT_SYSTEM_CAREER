@@ -487,6 +487,78 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
+   FORMS & INPUT CONTROLS (GLOBAL)
+   ========================================================================== */
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.92rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+}
+
+.form-label span.req {
+  color: var(--accent-rose);
+  margin-left: 2px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-surface-alt);
+  color: var(--text-main);
+  transition: var(--transition);
+  font-size: 0.95rem;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  border-color: var(--primary-500);
+  background: var(--bg-surface);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+.form-control.is-invalid {
+  border-color: var(--accent-rose);
+  background-color: #fff1f2;
+}
+
+[data-theme="dark"] .form-control.is-invalid {
+  background-color: rgba(244, 63, 94, 0.1);
+}
+
+.invalid-feedback {
+  color: var(--accent-rose);
+  font-size: 0.8rem;
+  margin-top: 0.35rem;
+  display: none;
+}
+
+.form-control.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+/* ==========================================================================
    TOAST & MODAL & NOTIFICATIONS
    ========================================================================== */
 .toast-container {
