@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng Nhập - EduCareer AI</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/auth.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="container navbar-container">
+      <a href="../index.html" class="brand-logo">
+        <div class="brand-logo-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div class="brand-text">
+          EduCareer AI
+          <span>Hệ Chuyên Gia THPT</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="primaryNav">
+        <a href="home.html" class="nav-link">Trang chủ</a>
+        <a href="consultation.html" class="nav-link">Tư vấn chọn ngành</a>
+        <a href="career-list.html" class="nav-link">Tra cứu ngành nghề</a>
+        <a href="about.html" class="nav-link">Giới thiệu hệ thống</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" title="Đổi giao diện Sáng/Tối">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="register.html" class="btn btn-outline btn-sm">
+          <i class="fas fa-user-plus"></i> Đăng ký
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="auth-wrapper">
+      <div class="auth-card">
+        <div class="auth-header">
+          <div class="auth-icon-badge">
+            <i class="fas fa-sign-in-alt"></i>
+          </div>
+          <h2>Đăng Nhập Hệ Thống</h2>
+          <p>Truy cập cổng tư vấn nghề nghiệp & quản trị tri thức</p>
+        </div>
+
+        <form id="loginForm" class="auth-body">
+          <div class="form-group">
+            <label class="form-label" for="loginUsername">Tên đăng nhập hoặc Email <span class="req">*</span></label>
+            <div style="position: relative;">
+              <input type="text" class="form-control" id="loginUsername" placeholder="Nhập username (ví dụ: admin hoặc hocsinh1)" required autofocus>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="loginPassword">Mật khẩu <span class="req">*</span></label>
+            <input type="password" class="form-control" id="loginPassword" placeholder="Nhập mật khẩu" required>
+          </div>
+
+          <div style="background: var(--bg-surface-alt); padding: 0.85rem 1rem; border-radius: var(--radius-md); margin-bottom: 1.25rem; font-size: 0.82rem; color: var(--text-muted); border-left: 3px solid var(--primary-600);">
+            <div><strong>Tài khoản mẫu để thử nghiệm:</strong></div>
+            <div>• Quản trị viên: <code>admin</code> / <code>admin123</code></div>
+            <div>• Học sinh: <code>hocsinh1</code> / <code>user123</code></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="btnLoginSubmit" style="width: 100%; padding: 0.85rem; font-size: 1rem;">
+            <i class="fas fa-arrow-right"></i> Đăng Nhập
+          </button>
+        </form>
+
+        <div class="auth-footer">
+          Chưa có tài khoản? <a href="register.html">Đăng ký tài khoản mới</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© 2026 EduCareer AI - Hệ Chuyên Gia Tư Vấn Chọn Ngành/Nghề THPT.</div>
+        <div>Hệ thống xác thực và bảo mật phân quyền đa cấp.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const loginForm = document.getElementById("loginForm");
+      if (loginForm) {
+        loginForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const u = document.getElementById("loginUsername").value.trim();
+          const p = document.getElementById("loginPassword").value;
+
+          try {
+            const btn = document.getElementById("btnLoginSubmit");
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang xác thực...';
+
+            const user = await ApiClient.login(u, p);
+            showToast(`Xin chào ${user.fullName}! Đăng nhập thành công.`, "success");
+
+            setTimeout(() => {
+              // Phân quyền chuyển hướng
+              if (user.role === "admin") {
+                window.location.href = "admin.html";
+              } else {
+                window.location.href = "consultation.html";
+              }
+            }, 800);
+          } catch (err) {
+            showToast(err.message || "Tên đăng nhập hoặc mật khẩu không đúng", "error");
+            const btn = document.getElementById("btnLoginSubmit");
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-arrow-right"></i> Đăng Nhập';
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

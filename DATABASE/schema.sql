@@ -1,12 +1,24 @@
 -- Schema cơ sở dữ liệu Hệ chuyên gia tư vấn hướng nghiệp THPT
+CREATE TABLE IF NOT EXISTS users (
+    id VARCHAR(50) PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    full_name VARCHAR(150) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    role VARCHAR(20) NOT NULL DEFAULT 'user', -- 'admin' hoặc 'user'
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 CREATE TABLE IF NOT EXISTS students (
     id VARCHAR(50) PRIMARY KEY,
+    user_id VARCHAR(50),
     full_name VARCHAR(150) NOT NULL,
     grade VARCHAR(10) NOT NULL DEFAULT '12',
     school VARCHAR(200),
     region VARCHAR(50) DEFAULT 'south',
     track VARCHAR(50) DEFAULT 'khoa_hoc_tu_nhien',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 CREATE TABLE IF NOT EXISTS career_categories (
@@ -35,6 +47,7 @@ CREATE TABLE IF NOT EXISTS careers (
 CREATE TABLE IF NOT EXISTS consultations (
     id VARCHAR(50) PRIMARY KEY,
     student_id VARCHAR(50),
+    user_id VARCHAR(50),
     dominant_code VARCHAR(10) NOT NULL,
     scores_json TEXT NOT NULL,
     riasec_json TEXT NOT NULL,
@@ -42,7 +55,8 @@ CREATE TABLE IF NOT EXISTS consultations (
     recommendations_json TEXT NOT NULL,
     explanation_json TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (student_id) REFERENCES students(id)
+    FOREIGN KEY (student_id) REFERENCES students(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 CREATE TABLE IF NOT EXISTS system_rules (

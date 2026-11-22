@@ -245,6 +245,95 @@ const ApiClient = {
     return local ? JSON.parse(local) : [];
   },
 
+  // AUTHENTICATION & USER MANAGEMENT
+  getCurrentUser() {
+    const raw = localStorage.getItem("career_current_user");
+    return raw ? JSON.parse(raw) : null;
+  },
+
+  setCurrentUser(userData) {
+    if (userData) {
+      localStorage.setItem("career_current_user", JSON.stringify(userData));
+    } else {
+      localStorage.removeItem("career_current_user");
+    }
+  },
+
+  logout() {
+    this.setCurrentUser(null);
+    window.location.href = "login.html";
+  },
+
+  async login(username, password) {
+    try {
+      const res = await fetch(`${API_BASE}/auth/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password })
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        this.setCurrentUser(data.data);
+        return data.data;
+      }
+      throw new Error(data.detail || data.message || "Đăng nhập thất bại");
+    } catch (e) {
+      // Mock fallback nếu backend chưa chạy
+      if (username === "admin" && password === "admin123") {
+        const mockAdmin = {
+          id: "usr_admin_01",
+          username: "admin",
+          fullName: "Quản Trị Viên Hệ Thống",
+          email: "admin@educareer.edu.vn",
+          role: "admin",
+          token: "mock_jwt_token_admin"
+        };
+        this.setCurrentUser(mockAdmin);
+        return mockAdmin;
+      } else if (password && password.length >= 6) {
+        const mockUser = {
+          id: "usr_" + Date.now(),
+          username: username,
+          fullName: username,
+          email: `${username}@gmail.com`,
+          role: "user",
+          token: "mock_jwt_token_user"
+        };
+        this.setCurrentUser(mockUser);
+        return mockUser;
+      }
+      throw e;
+    }
+  },
+
+  async register(userData) {
+    try {
+      const res = await fetch(`${API_BASE}/auth/register`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userData)
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        this.setCurrentUser(data.data);
+        return data.data;
+      }
+      throw new Error(data.detail || data.message || "Đăng ký thất bại");
+    } catch (e) {
+      // Mock fallback nếu backend chưa chạy
+      const mockNew = {
+        id: "usr_" + Date.now(),
+        username: userData.username,
+        fullName: userData.fullName,
+        email: userData.email,
+        role: userData.role || "user",
+        token: "mock_jwt_token_" + Date.now()
+      };
+      this.setCurrentUser(mockNew);
+      return mockNew;
+    }
+  },
+
   // ADMIN APIS
   async getAdminStats() {
     try {

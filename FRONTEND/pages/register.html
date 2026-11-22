@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng Ký Tài Khoản - EduCareer AI</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/auth.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="container navbar-container">
+      <a href="../index.html" class="brand-logo">
+        <div class="brand-logo-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div class="brand-text">
+          EduCareer AI
+          <span>Hệ Chuyên Gia THPT</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="primaryNav">
+        <a href="home.html" class="nav-link">Trang chủ</a>
+        <a href="consultation.html" class="nav-link">Tư vấn chọn ngành</a>
+        <a href="career-list.html" class="nav-link">Tra cứu ngành nghề</a>
+        <a href="about.html" class="nav-link">Giới thiệu hệ thống</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" title="Đổi giao diện Sáng/Tối">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="login.html" class="btn btn-outline btn-sm">
+          <i class="fas fa-sign-in-alt"></i> Đăng nhập
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="auth-wrapper">
+      <div class="auth-card">
+        <div class="auth-header">
+          <div class="auth-icon-badge" style="background: linear-gradient(135deg, #10b981, #059669);">
+            <i class="fas fa-user-plus"></i>
+          </div>
+          <h2>Tạo Tài Khoản Mới</h2>
+          <p>Tham gia hệ thống tư vấn hướng nghiệp chuyên gia THPT</p>
+        </div>
+
+        <form id="registerForm" class="auth-body">
+          <!-- Phân quyền khi đăng ký -->
+          <div class="form-group">
+            <label class="form-label">Loại tài khoản đăng ký <span class="req">*</span></label>
+            <div class="role-select-group">
+              <div class="role-radio-btn active" data-role="user" id="roleBtnUser">
+                <i class="fas fa-user-graduate"></i> Học sinh THPT
+              </div>
+              <div class="role-radio-btn" data-role="admin" id="roleBtnAdmin">
+                <i class="fas fa-user-shield"></i> Quản trị viên (Admin)
+              </div>
+            </div>
+            <input type="hidden" id="registerRole" value="user">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="regFullName">Họ và tên <span class="req">*</span></label>
+            <input type="text" class="form-control" id="regFullName" placeholder="Ví dụ: Nguyễn Văn An" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="regUsername">Tên đăng nhập <span class="req">*</span></label>
+            <input type="text" class="form-control" id="regUsername" placeholder="Ví dụ: nguyenvanan12" required minlength="3">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="regEmail">Email</label>
+            <input type="email" class="form-control" id="regEmail" placeholder="email@gmail.com">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="regPassword">Mật khẩu <span class="req">*</span></label>
+            <input type="password" class="form-control" id="regPassword" placeholder="Tối thiểu 6 ký tự" required minlength="6">
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="btnRegisterSubmit" style="width: 100%; padding: 0.85rem; font-size: 1rem; background: linear-gradient(135deg, #10b981, #059669);">
+            <i class="fas fa-check-circle"></i> Đăng Ký Tài Khoản
+          </button>
+        </form>
+
+        <div class="auth-footer">
+          Đã có tài khoản? <a href="login.html">Đăng nhập tại đây</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© 2026 EduCareer AI - Hệ Chuyên Gia Tư Vấn Chọn Ngành/Nghề THPT.</div>
+        <div>Tài khoản được mã hóa và phân quyền theo chuẩn RBAC.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const roleBtnUser = document.getElementById("roleBtnUser");
+      const roleBtnAdmin = document.getElementById("roleBtnAdmin");
+      const roleInput = document.getElementById("registerRole");
+
+      roleBtnUser.addEventListener("click", () => {
+        roleBtnUser.classList.add("active");
+        roleBtnAdmin.classList.remove("active");
+        roleInput.value = "user";
+      });
+
+      roleBtnAdmin.addEventListener("click", () => {
+        roleBtnAdmin.classList.add("active");
+        roleBtnUser.classList.remove("active");
+        roleInput.value = "admin";
+      });
+
+      const registerForm = document.getElementById("registerForm");
+      if (registerForm) {
+        registerForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const fullName = document.getElementById("regFullName").value.trim();
+          const username = document.getElementById("regUsername").value.trim();
+          const email = document.getElementById("regEmail").value.trim();
+          const password = document.getElementById("regPassword").value;
+          const role = roleInput.value;
+
+          try {
+            const btn = document.getElementById("btnRegisterSubmit");
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang tạo tài khoản...';
+
+            const user = await ApiClient.register({
+              username,
+              password,
+              fullName,
+              email: email || undefined,
+              role
+            });
+
+            showToast(`Đăng ký thành công tài khoản [${role.toUpperCase()}]. Đang chuyển hướng...`, "success");
+
+            setTimeout(() => {
+              if (user.role === "admin") {
+                window.location.href = "admin.html";
+              } else {
+                window.location.href = "consultation.html";
+              }
+            }, 800);
+          } catch (err) {
+            showToast(err.message || "Lỗi khi đăng ký tài khoản", "error");
+            const btn = document.getElementById("btnRegisterSubmit");
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-check-circle"></i> Đăng Ký Tài Khoản';
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -5,6 +5,14 @@
 let allRulesCache = [];
 
 document.addEventListener("DOMContentLoaded", () => {
+  // KIỂM TRA PHÂN QUYỀN ADMIN (ROUTE GUARD)
+  const currentUser = typeof ApiClient !== "undefined" && ApiClient.getCurrentUser ? ApiClient.getCurrentUser() : null;
+  if (!currentUser || currentUser.role !== "admin") {
+    alert("CẢNH BÁO: Bạn cần đăng nhập bằng tài khoản QUẢN TRỊ VIÊN (Admin) để truy cập trang này!");
+    window.location.href = "login.html";
+    return;
+  }
+
   initAdminTabs();
   loadAdminDashboard();
   initModalActions();

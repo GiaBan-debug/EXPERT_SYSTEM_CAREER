@@ -11,6 +11,11 @@ from app.schemas.result_schema import (
     RecommendationItem,
     CareerMatchDetail,
 )
+from app.schemas.user_schema import (
+    UserRegisterRequest,
+    UserLoginRequest,
+    UserResponse,
+)
 
 __all__ = [
     "StudentCreate",
@@ -22,4 +27,7 @@ __all__ = [
     "ConsultationResponse",
     "RecommendationItem",
     "CareerMatchDetail",
+    "UserRegisterRequest",
+    "UserLoginRequest",
+    "UserResponse",
 ]
